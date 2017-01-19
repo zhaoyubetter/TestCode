@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>\
+    <!-- RefreshLayout 下拉刷新，上拉加载控件 -->
+    <declare-styleable name="RefreshRecyclerLayout">
+        <attr name="me_load_manual" format="boolean" />
+        <attr name="me_refresh_scheme_color" format="reference|color" />
+        <attr name="me_refresh_enable" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="test">
+        <attr name="backgroundParser" format="string" />
+        <attr name="cornerRadiusMy" format="dimension" />
+        <attr name="bottomLeftRadiusMy" format="dimension" />
+        <attr name="bottomRightRadiusMy" format="dimension" />
+        <attr name="topLeftRadiusMy" format="dimension" />
+        <attr name="topRightRadiusMy" format="dimension" />
+        <attr name="styleMy" format="enum">
+            <enum name="stroke" value="1" />
+            <enum name="solid" value="2" />
+        </attr>
+        <attr name="colorMy" format="color" />
+        <attr name="strokeWidthMy" format="dimension" />
+        <attr name="pivotXMy" format="float" />
+        <attr name="pivotYMy" format="float" />
+        <attr name="radiusMy" format="float" />
+        <attr name="radiusStyleMy" format="enum">
+            <enum name="longMy" value="1" />
+            <enum name="shortMy" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

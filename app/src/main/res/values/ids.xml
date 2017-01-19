@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="recycleView" type="id"/>
+    <item type="id" name="login_activity">false</item>
+
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- common colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red">#ffff0000</color>
+    <color name="gray">#808080</color>
+    <!-- project used special colors -->
+    <color name="button_default_blue">#4499E2</color>
+    <color name="button_press_blue">#3C88C9</color>
+    <color name="button_default_green">#1FBBA6</color>
+    <color name="button_press_green">#1E8174</color>
+    <color name="button_default_red">#F57365</color>
+    <color name="button_press_red">#E55141</color>
+
+    <color name="text_default_blue">#679BD2</color>
+    <color name="text_default_gray">#666666</color>
+
+    <color name="default_light_blue">#E7F3FD</color>
+
+    <!-- <color name="headview_default_red">#F05455</color>  -->
+    <color name="headview_default_blue">#3C88C9</color>
+</resources>

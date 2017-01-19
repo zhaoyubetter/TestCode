@@ -1,0 +1,118 @@
+// android程序的gradle插件
+apply plugin: 'com.android.application'
+apply from: '../my_config.gradle'
+
+// android的具体配置
+android {
+    compileSdkVersion BUILD_SDK_VERSION as int
+    buildToolsVersion BUILD_TOOLS_VERSION
+
+    // 默认配置
+    defaultConfig {
+        applicationId "groovy.better.com.groovytest"
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en","zh"
+        manifestPlaceholders = [TEST_KEY: 'better', UMENG_APPKEY: 'better']
+    }
+
+    // 编译类型
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField 'String', 'TEST_NAME', '"test_debug"' // ildConfigField
+            resValue "string", "test_name", "test_debug"   //resValue
+        }
+
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField 'String', 'TEST_NAME', '"test_release"' // ildConfigField
+            resValue "string", "test_name", "test_release"   //resValue
+        }
+    }
+
+
+    // 多渠道打包
+    productFlavors {
+
+        // 个性化定制
+        xiaomi {
+            applicationId "groovy.better.com.groovytest.xiaomi"
+            minSdkVersion 11
+            manifestPlaceholders = [TEST_KEY: 'xiaomi', UMENG_APPKEY: 'xiaomi']
+        }
+        huawei {
+            applicationId "groovy.better.com.groovytest.huawei"
+            minSdkVersion 14
+            manifestPlaceholders = [TEST_KEY: 'huawei', UMENG_APPKEY: 'huawei']
+        }
+        baidu {
+            applicationId "groovy.better.com.groovytest.baidu"
+            minSdkVersion 16
+            manifestPlaceholders = [TEST_KEY: 'baidu', UMENG_APPKEY: 'baidu']
+        }
+    }
+
+    // apk名称修改
+    applicationVariants.all { variant ->
+        if (variant.buildType.name.equals('release')) {
+            variant.outputs.each { output ->
+                def appName = 'JDME'
+                def oldFile = output.outputFile
+                def buildName
+                def releaseApkName
+
+                variant.productFlavors.each { product ->
+                    buildName = product.name
+                }
+
+                releaseApkName = appName + getVersionByMainfest() + '_' + buildName + '_' + getNowTime() + '.apk'
+                output.outputFile = new File(oldFile.parent, releaseApkName)
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+}
+
+// 依赖
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:23.3.0'
+    compile 'com.android.support:support-annotations:23.3.0'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:recyclerview-v7:23.3.0'
+}
+
+// ----->  自定义的方法
+//获取时间戳
+def getNowTime() {
+    def date = new Date()
+    def now = date.format('yyyyMMddHHmm')
+    return now
+}
+
+//从androidManifest.xml中获取版本号
+def getVersionByMainfest() {
+    def parser = new com.android.builder.core.DefaultManifestParser()
+    return parser.getVersionName(android.sourceSets.main.manifest.srcFile)
+}
