@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".FilterActivity" />
         <activity android:name=".GroupActivity" />
+        <activity android:name=".improve.Improve1Activity"/>
     </application>
 
 </manifest>

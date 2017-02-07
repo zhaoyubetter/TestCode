@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import better.com.rxandroidtest.improve.Improve1Activity;
 import better.com.rxandroidtest.model.Phone;
 import better.com.rxandroidtest.model.User;
 import rx.Observable;
@@ -55,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), GroupActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.improve_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Improve1Activity.class);
                 startActivity(intent);
             }
         });

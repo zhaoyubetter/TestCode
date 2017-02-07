@@ -29,4 +29,11 @@
         android:layout_below="@+id/filter"
         android:text="组合" />
 
+    <Button
+        android:id="@+id/improve_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/group"
+        android:text="示例1——获取App上的应用" />
+
 </RelativeLayout>
