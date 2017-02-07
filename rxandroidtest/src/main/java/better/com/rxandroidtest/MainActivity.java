@@ -16,6 +16,7 @@ import rx.Observable;
 import rx.Observer;
 import rx.Scheduler;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 // rxTest2();
                 // rxTest3FlatMap();
                 // rxTestSwitchMap();
-                rxTestScan();
+                // rxTestScan();
+                testSource();
             }
         });
 
@@ -56,19 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        String str = "***a**b*d**a**c***";
-        Log.e(TAG, str);
-        replace(str);
-    }
-
-    private void replace(String str) {
-        int itemOffset = 0;
-        StringBuilder out = new StringBuilder(str);
-        for (int i = 0; i < out.length(); i++) {
-
-        }
-        Log.e(TAG, out.toString());
     }
 
     // 对一个序列的数据应用一个函数，并将这个函数的结果发射出去作为下个数据应用合格函数时的第一个参数使用。
@@ -202,5 +191,70 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "Item: " + s);
             }
         });
+    }
+
+    private void testSource() {
+
+        /*
+        final Observable<Integer> observableA = Observable.create(new Observable.OnSubscribe<Integer>() {
+            @Override
+            public void call(Subscriber<? super Integer> subscriber) {
+                subscriber.onNext(1);
+                subscriber.onCompleted();
+            }
+        });
+
+        final Observable<String> observableB = observableA.map(new Func1<Integer, String>() {
+            @Override
+            public String call(Integer integer) {
+                return "This is " + String.valueOf(integer);
+            }
+        });
+
+        Subscriber subscriberOne = new Subscriber<String>() {
+            @Override
+            public void onCompleted() {
+                Log.e(TAG, "onCompleted");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+            }
+
+            @Override
+            public void onNext(String o) {
+                Log.e(TAG, o);
+            }
+        };
+
+        observableB.subscribe(subscriberOne);
+*/
+        Subscriber a = new Subscriber<String>() {
+            @Override
+            public void onCompleted() {
+            }
+
+            @Override
+            public void onError(Throwable e) {
+            }
+
+            @Override
+            public void onNext(String o) {
+                Log.e(TAG, "" + Thread.currentThread().getName());
+                Log.e(TAG, "onNext" + o);
+            }
+        };
+
+        // 线程调度的观察
+        final Observable obserbable = Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                Log.e(TAG, "" + Thread.currentThread().getName());
+                subscriber.onNext("Hello RxJava!!");
+                subscriber.onCompleted();
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        obserbable.subscribe(a);
+
     }
 }
