@@ -1,0 +1,12 @@
+############ Android 晋级学习计划 ##################
+优秀的文章
+https://www.zhihu.com/question/19765032
+http://www.ibm.com/developerworks/cn/opensource/theme/android/#more
+
+1.内存优化与检测：mat工具的使用；
+
+2.Android动画的原理：
+    参考：http://blog.csdn.net/yelbosh/article/details/7750500
+    a.Frame动画原理：通过不断换图片来实现动画；
+    b.tween动画：平移，缩放，旋转以及 alpha 变换，通过view.startAnim()方法传入动画对象，亦可组合各种动画效果；
+        Android 动画就是通过 ParentView 来不断调整 ChildView 的画布坐标系来实现的
