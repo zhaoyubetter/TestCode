@@ -19,6 +19,11 @@ public class MyAdapter1 extends BaseRecyclerViewAdapter<AppInfoBean> {
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return data.get(position).appType;
+    }
+
+    @Override
     protected void onConvert(BaseRecyclerViewHolder holder, AppInfoBean item, int position) {
 
         final int itemViewType = holder.getItemViewType();
