@@ -10,6 +10,7 @@ import java.lang.ref.WeakReference;
 import test.better.com.leak.R;
 
 /**
+ * 内部类的静态转化
  * Created by zhaoyu1 on 2017/2/9.
  */
 public class LeakActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class LeakActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_leak_1);
         handler.postDelayed(new MyRunnable(), 30000);       // 内存泄露
     }
 
