@@ -17,6 +17,7 @@
         </activity>
 
         <activity android:name=".leak.LeakActivity" />
+        <activity android:name=".optimize.ImageCompressActivity"/>
     </application>
 
 </manifest>

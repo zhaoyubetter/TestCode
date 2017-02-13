@@ -1,11 +1,12 @@
 package test.better.com.leak;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import test.better.com.leak.leak.LeakActivity;
+import test.better.com.leak.optimize.ImageCompressActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LeakActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 压缩图片
+        findViewById(R.id.zoomImage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ImageCompressActivity.class);
                 startActivity(intent);
             }
         });
