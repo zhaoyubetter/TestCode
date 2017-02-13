@@ -22,10 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import groovy.better.com.groovytest.liveness.LivenessCaptureActivity;
-import groovy.better.com.groovytest.liveness.util.PermissionUtils;
 import groovy.better.com.groovytest.selector.demo.DemoActivity;
-import groovy.better.com.groovytest.textureView.TextureViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LivenessCaptureActivity.class);
-                startActivity(intent);
+                // Intent intent = new Intent(getApplicationContext(), LivenessCaptureActivity.class);
+                // startActivity(intent);
 
             }
         });
@@ -66,13 +63,13 @@ public class MainActivity extends AppCompatActivity {
                 names.add("相机");
                 names.add("存储");
 
-                PermissionUtils.checkPermissions(MainActivity.this, per, names, new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent intent = new Intent(getApplicationContext(), LivenessCaptureActivity.class);
-                        startActivity(intent);
-                    }
-                });
+//                PermissionUtils.checkPermissions(MainActivity.this, per, names, new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Intent intent = new Intent(getApplicationContext(), LivenessCaptureActivity.class);
+//                        startActivity(intent);
+//                    }
+//                });
             }
         });
 
@@ -93,50 +90,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void hongbao() {
-        RedPacketDialog.newInstance().show(getSupportFragmentManager(), "dialog");
+//        RedPacketDialog.newInstance().show(getSupportFragmentManager(), "dialog");
     }
 
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        PermissionUtils.requestResult(requestCode, permissions, grantResults, new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(getApplicationContext(), LivenessCaptureActivity.class);
-                startActivity(intent);
-            }
-        }, null);
+//        PermissionUtils.requestResult(requestCode, permissions, grantResults, new Runnable() {
+//            @Override
+//            public void run() {
+//                Intent intent = new Intent(getApplicationContext(), LivenessCaptureActivity.class);
+//                startActivity(intent);
+//            }
+//        }, null);
     }
 
     private void showDetailDialog(String msg) {
-        final Dialog dialog = new Dialog(this);
-        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View view = inflater.inflate(R.layout.jdme_flow_center_full_screen_dialog, null);
-        TextView subject = (TextView) view.findViewById(R.id.tv_holiday_description_subject);
-        subject.setText("" + msg);
+//        final Dialog dialog = new Dialog(this);
+//        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        final View view = inflater.inflate(R.layout.jdme_flow_center_full_screen_dialog, null);
+//        TextView subject = (TextView) view.findViewById(R.id.tv_holiday_description_subject);
+//        subject.setText("" + msg);
 
 
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-        dialog.setContentView(view);
-
-        WindowManager.LayoutParams p = dialog.getWindow().getAttributes(); // 获取对话框当前的参数值
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        p.height = (int) (dm.heightPixels * 1.0); // 高度设置为屏幕的比例
-        p.width = (int) (dm.widthPixels * 1.0); // 宽度设置为屏幕的比例
-        dialog.getWindow().setAttributes(p); // 设置生效
-
-        dialog.show();
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (null != dialog && dialog.isShowing()) {
-                    dialog.dismiss();
-                }
-            }
-        });
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+//
+//        dialog.setContentView(view);
+//
+//        WindowManager.LayoutParams p = dialog.getWindow().getAttributes(); // 获取对话框当前的参数值
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getMetrics(dm);
+//        p.height = (int) (dm.heightPixels * 1.0); // 高度设置为屏幕的比例
+//        p.width = (int) (dm.widthPixels * 1.0); // 宽度设置为屏幕的比例
+//        dialog.getWindow().setAttributes(p); // 设置生效
+//
+//        dialog.show();
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (null != dialog && dialog.isShowing()) {
+//                    dialog.dismiss();
+//                }
+//            }
+//        });
     }
 
 

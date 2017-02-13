@@ -10,8 +10,6 @@ import android.widget.FrameLayout;
 
 import java.io.IOException;
 
-import groovy.better.com.groovytest.R;
-
 /**
  * Created by zhaoyu1 on 2016/12/7.
  */
@@ -23,7 +21,7 @@ public class TextureViewActivity extends Activity implements TextureView.Surface
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_texture);
+//        setContentView(R.layout.activity_texture);
 
         myTexture = new TextureView(this);
         myTexture.setSurfaceTextureListener(this);
