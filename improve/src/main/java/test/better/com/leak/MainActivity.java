@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import test.better.com.leak.leak.LeakActivity;
+import test.better.com.leak.optimize.BitmapActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LeakActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.image).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BitmapActivity.class);
                 startActivity(intent);
             }
         });
