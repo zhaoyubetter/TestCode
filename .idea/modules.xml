@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/GroovyTest.iml" filepath="$PROJECT_DIR$/GroovyTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/groovytest2/groovytest2.iml" filepath="$PROJECT_DIR$/groovytest2/groovytest2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/improve/improve.iml" filepath="$PROJECT_DIR$/improve/improve.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxandroidtest/rxandroidtest.iml" filepath="$PROJECT_DIR$/rxandroidtest/rxandroidtest.iml" />
     </modules>
   </component>
