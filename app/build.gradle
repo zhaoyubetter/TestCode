@@ -113,6 +113,7 @@ def getNowTime() {
 
 //从androidManifest.xml中获取版本号
 def getVersionByMainfest() {
-    def parser = new com.android.builder.core.DefaultManifestParser()
-    return parser.getVersionName(android.sourceSets.main.manifest.srcFile)
+//    def parser = new com.android.builder.core.DefaultManifestParser()
+//    return parser.getVersionName(android.sourceSets.main.manifest.srcFile)
+    return "better"
 }

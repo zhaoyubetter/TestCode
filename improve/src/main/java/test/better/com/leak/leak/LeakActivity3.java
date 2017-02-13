@@ -9,8 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.lang.ref.WeakReference;
 
-import test.better.com.leak.R;
-
 /**
  * Handler 造成的内存泄露：
  * 1. mHander 为匿名内部类，这样就持有外部类 activity的引用；
@@ -30,7 +28,7 @@ public class LeakActivity3 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_leak_1);
+        //setContentView(R.layout.activity_leak_1);
 
         mHander2 = new MyHandler(this);
     }
