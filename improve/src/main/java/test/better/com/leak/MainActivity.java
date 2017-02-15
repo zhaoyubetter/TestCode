@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import test.better.com.leak.activity_review.LifeCycleActivity;
 import test.better.com.leak.leak.LeakActivity;
 import test.better.com.leak.optimize.ImageCompressActivity;
 
@@ -30,5 +31,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Activity 生命周期
+        findViewById(R.id.activity_life_cycle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LifeCycleActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

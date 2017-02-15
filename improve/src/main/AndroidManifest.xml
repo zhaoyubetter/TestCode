@@ -20,6 +20,8 @@
         <activity android:name=".leak.LeakActivity2" />
         <!-- 优化方面，图片压缩 -->
         <activity android:name=".optimize.ImageCompressActivity"/>
+
+        <activity android:name=".activity_review.LifeCycleActivity"/>
     </application>
 
 </manifest>
