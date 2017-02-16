@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import test.better.com.leak.activity_review.LaunchModeActivity;
 import test.better.com.leak.activity_review.LifeCycleActivity;
 import test.better.com.leak.leak.LeakActivity;
 import test.better.com.leak.optimize.ImageCompressActivity;
@@ -37,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LifeCycleActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.activity_launch_mode).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Apps.getApp(), LaunchModeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
