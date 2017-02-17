@@ -40,4 +40,10 @@
         android:layout_height="wrap_content"
         android:text="启动模式（Activity）" />
 
+    <Button
+        android:id="@+id/view_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View 相关" />
+
 </LinearLayout>

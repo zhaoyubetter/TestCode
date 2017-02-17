@@ -9,6 +9,7 @@ import test.better.com.leak.activity_review.LaunchModeActivity;
 import test.better.com.leak.activity_review.LifeCycleActivity;
 import test.better.com.leak.leak.LeakActivity;
 import test.better.com.leak.optimize.ImageCompressActivity;
+import test.better.com.leak.view.ViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Apps.getApp(), LaunchModeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.view_test).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Apps.getApp(), ViewActivity.class);
                 startActivity(intent);
             }
         });
