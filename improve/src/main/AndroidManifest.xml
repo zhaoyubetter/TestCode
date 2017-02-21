@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="test.better.com.leak">
+<manifest package="test.better.com.leak"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:name=".Apps"
@@ -11,23 +11,24 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity android:name=".leak.LeakActivity" />
-        <activity android:name=".leak.LeakActivity2" />
+        <activity android:name=".leak.LeakActivity"/>
+        <activity android:name=".leak.LeakActivity2"/>
         <!-- 优化方面，图片压缩 -->
-        <activity android:name=".optimize.ImageCompressActivity" />
+        <activity android:name=".optimize.ImageCompressActivity"/>
 
         <!-- 生命周期 -->
-        <activity android:name=".activity_review.LifeCycleActivity" />
+        <activity android:name=".activity_review.LifeCycleActivity"/>
         <!-- 启动模式 -->
-        <activity android:name=".activity_review.LaunchModeActivity" />
-        <activity android:name=".view.ViewActivity" />
-        <activity android:name=".view.AnimDiffActivity" />
+        <activity android:name=".activity_review.LaunchModeActivity"/>
+        <activity android:name=".view.ViewActivity"/>
+        <activity android:name=".view.AnimDiffActivity"/>
+        <activity android:name=".view.slideconflict.SlideConflict1Activity">
+        </activity>
     </application>
 
 </manifest>

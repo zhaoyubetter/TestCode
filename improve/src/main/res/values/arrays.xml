@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="viewInfo">
+    <string-array name="list_test_data_1">
+        <item>A item</item>
+        <item>B item</item>
+        <item>C item</item>
+        <item>D item</item>
+        <item>E item</item>
+        <item>F item</item>
+        <item>G item</item>
+        <item>H item</item>
+        <item>I item</item>
+        <item>J item</item>
+        <item>K item</item>
+        <item>L item</item>
+        <item>M item</item>
+        <item>N item</item>
+    </string-array>
+
+    <string-array name="list_test_data_2">
+        <item>One item</item>
+        <item>Two item</item>
+        <item>Three item</item>
+        <item>Four item</item>
+        <item>Five item</item>
+        <item>Six item</item>
+        <item>Seven item</item>
+        <item>Eight item</item>
+        <item>Nine item</item>
+        <item>Ten item</item>
+        <item>Eleven item</item>
+        <item>12 item</item>
+        <item>13 item</item>
+        <item>14 item</item>
     </string-array>
 </resources>

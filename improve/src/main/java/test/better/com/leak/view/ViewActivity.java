@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import test.better.com.leak.view.bean.ViewInfoBean;
+import test.better.com.leak.view.slideconflict.SlideConflict1Activity;
 
 /**
  * Created by zhaoyu1 on 2017/2/16.
@@ -30,6 +31,8 @@ public class ViewActivity extends AppCompatActivity {
 
         mDatas = new ArrayList<>();
         mDatas.add(new ViewInfoBean("3种动画", AnimDiffActivity.class));
+        mDatas.add(new ViewInfoBean("滑动冲突1", SlideConflict1Activity.class));
+
 
         listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mDatas));
