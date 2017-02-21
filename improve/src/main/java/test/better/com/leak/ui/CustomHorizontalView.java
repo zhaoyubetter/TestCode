@@ -134,6 +134,10 @@ public class CustomHorizontalView extends ViewGroup {
 				lastX = ev.getX();
 				lastY = ev.getY();
 				result = false;
+				// 让Detector收到DOWN事件，如果不设置，则表示ViewGroup将没有down这个事件，
+				// 这个时候，滑动的时候，会发生错乱；
+				// 根据事件分发原则，只有在 onInterceptTouchEvent返回true时，onTouchEvent才执行；
+				// 返回false的时候，down被子view消耗了，这个时候，当前 容器 onTouchEvent没有收到down事件；
 				mDetector.onTouchEvent(ev);
 				break;
 			case MotionEvent.ACTION_MOVE:
