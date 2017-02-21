@@ -15,17 +15,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Leak泄露测试" />
-    
+
     <Button
         android:id="@+id/zoomImage"
         android:layout_width="wrap_content"
-        android:text="图片压缩"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="图片压缩" />
 
     <Button
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="图片压缩处理" />
+
+    <Button
+        android:id="@+id/activity_life_cycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="生命周期（Activity）" />
+
+    <Button
+        android:id="@+id/activity_launch_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动模式（Activity）" />
+
+    <Button
+        android:id="@+id/view_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View 相关" />
 
 </LinearLayout>

@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import test.better.com.leak.R;
-import test.better.com.leak.utils.ImageUtils;
+import test.better.com.leak.utils.BitmapUtils;
 
 /**
  * 压缩图片 BitmapFactory
@@ -24,7 +24,7 @@ public class ImageCompressActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_zoom_image);
 		zoom = (ImageView) findViewById(R.id.zoom);
 
-		final Bitmap bitmap = ImageUtils.compressBitmap(getApplicationContext(), R.mipmap.image, 200, 200);
+		final Bitmap bitmap = BitmapUtils.compressBitmap(getApplicationContext(), R.mipmap.image, 200, 200);
 		zoom.setImageBitmap(bitmap);
 	}
 }
