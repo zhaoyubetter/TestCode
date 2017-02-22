@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 /**
  * 嵌套滑动冲突
@@ -53,20 +54,18 @@ public class ConflictScrollView extends ScrollView {
                 }
 
                 // 最后一个条目完成可见时，并且向上滑动，拦截事件
-                if (mListView.getLastVisiblePosition() >= mListView.getCount() - 1) {
-                    final int childIndex = mListView.getLastVisiblePosition() - mListView.getFirstVisiblePosition();
-                    final int index = Math.min(childIndex, mListView.getCount() - 1);
-                    final View lastVisibleChild = mListView.getChildAt(index);
+                if (mListView.getLastVisiblePosition() == mListView.getCount() - 1) {
+                    final View lastVisibleChild = mListView.getChildAt(mListView.getLastVisiblePosition() - mListView.getFirstVisiblePosition());
                     if (lastVisibleChild != null && y < mDownY) {
-                        Log.e("better", "last bottom: " + lastVisibleChild.getBottom());
-                        intercept = lastVisibleChild.getBottom() + mListView.getBottom() >= mListView.getHeight();
-                        Log.e("better", intercept + "");
+                        // lastVisibleChild 不完全显示的 bottom 大于 完全时的 bottom
+                        intercept = lastVisibleChild.getBottom() + mListView.getPaddingBottom() <= mListView.getHeight();
+                        Log.e("better", String.format("lastChild Bottom: %s, listView Height: %s, listView paddingBtm :%s", lastVisibleChild.getBottom(), mListView.getHeight(), mListView.getPaddingBottom()));
                     }
                 }
                 break;
         }
 
-        Log.e("better", intercept + "" + " , top: " + mListView.getChildAt(0).getTop() + ", listView Height: " + mListView.getHeight());
+        // Log.e("better", intercept + "" + " , top: " + mListView.getChildAt(0).getTop() + ", listView height: " + mListView.getHeight());
 
         return intercept;
     }
