@@ -27,8 +27,8 @@
         <activity android:name=".activity_review.LaunchModeActivity"/>
         <activity android:name=".view.ViewActivity"/>
         <activity android:name=".view.AnimDiffActivity"/>
-        <activity android:name=".view.slideconflict.SlideConflict1Activity">
-        </activity>
+        <activity android:name=".view.slideconflict.SlideConflict1Activity"/>
+        <activity android:name=".view.slideconflict.SlideConflict2Activity"/>
     </application>
 
 </manifest>

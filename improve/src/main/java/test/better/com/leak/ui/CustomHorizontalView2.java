@@ -6,14 +6,13 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
 /**
- * 左右滑动view
+ * 左右滑动view （for 内部拦截法）
  */
-public class CustomHorizontalView extends ViewGroup {
+public class CustomHorizontalView2 extends ViewGroup {
 
 	private static final String TAG = "CustomHorizontalView";
 
@@ -25,21 +24,21 @@ public class CustomHorizontalView extends ViewGroup {
 
 	private int mCurIndex;
 
-	public CustomHorizontalView(Context context) {
+	public CustomHorizontalView2(Context context) {
 		this(context, null);
 	}
 
-	public CustomHorizontalView(Context context, AttributeSet attrs) {
+	public CustomHorizontalView2(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
 
-	public CustomHorizontalView(Context context, AttributeSet attrs, int defStyleAttr) {
+	public CustomHorizontalView2(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		mScroller = new Scroller(getContext());
 		mDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
 			@Override
 			public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-				CustomHorizontalView.this.scrollBy((int) distanceX, 0);
+				CustomHorizontalView2.this.scrollBy((int) distanceX, 0);
 				Log.e(TAG, "" + distanceX + "， scrollX: " + getScrollX());
 				return true;
 			}
@@ -109,9 +108,6 @@ public class CustomHorizontalView extends ViewGroup {
 		}
 	}
 
-	private float lastX;
-	private float lastY;
-
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		mDetector.onTouchEvent(event);
@@ -131,33 +127,12 @@ public class CustomHorizontalView extends ViewGroup {
 		boolean result = false;
 		switch (ev.getAction()) {
 			case MotionEvent.ACTION_DOWN:
-				lastX = ev.getX();
-				lastY = ev.getY();
 				result = false;
-				// 让Detector收到DOWN事件，如果不设置，则表示ViewGroup将没有down这个事件，
-				// 这个时候，滑动的时候，会发生错乱；
-				// 根据事件分发原则，只有在 onInterceptTouchEvent返回true时，onTouchEvent才执行；
-				// 返回false的时候，down被子view消耗了，这个时候，当前 容器 onTouchEvent没有收到down事件；
 				mDetector.onTouchEvent(ev);
-
-				// 滚动没有完成的时候
-				if(!mScroller.isFinished()) {
-					mScroller.abortAnimation();
-					return true;
-				}
 				break;
-			case MotionEvent.ACTION_MOVE:
-				int distanceX = (int) Math.abs(ev.getX() - lastX);
-				int distanceY = (int) Math.abs(ev.getY() - lastY);
-				int slop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-				if (distanceX > distanceY && distanceX > slop) {
-					result = true;         // 消耗事件，交由onTouchEvent处理
-				} else {
-					result = false;
-				}
+			default:
+				result = true;
 				break;
-			case MotionEvent.ACTION_UP:
-				result = false;
 		}
 
 		return result;

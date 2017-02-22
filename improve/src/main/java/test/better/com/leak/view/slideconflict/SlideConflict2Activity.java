@@ -7,7 +7,7 @@ import android.widget.ListView;
 
 import test.better.com.leak.R;
 
-public class SlideConflict1Activity extends AppCompatActivity {
+public class SlideConflict2Activity extends AppCompatActivity {
 
 	ListView list1;
 	ListView list2;
@@ -15,7 +15,7 @@ public class SlideConflict1Activity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		getSupportActionBar().setTitle("内外滑动方向一致-外部拦截1");
+		getSupportActionBar().setTitle("内外滑动方向一致-内部拦截1");
 		setContentView(R.layout.activity_slide_conflict_1);
 
 		list1 = (ListView) findViewById(R.id.list1);
