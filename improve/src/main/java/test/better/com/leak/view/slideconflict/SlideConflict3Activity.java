@@ -17,6 +17,7 @@ public class SlideConflict3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slide_conflict3);
+        getSupportActionBar().setTitle("");
         list = (ListView) findViewById(R.id.list);
         scrollView = (ConflictScrollView) findViewById(R.id.scrollView);
         list.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.list_test_data_1)));

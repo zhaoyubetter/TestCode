@@ -29,7 +29,8 @@
         <activity android:name=".view.AnimDiffActivity" />
         <activity android:name=".view.slideconflict.SlideConflict1Activity" />
         <activity android:name=".view.slideconflict.SlideConflict2Activity" />
-        <activity android:name=".view.slideconflict.SlideConflict3Activity"></activity>
+        <activity android:name=".view.slideconflict.SlideConflict3Activity" />
+        <activity android:name=".view.slideconflict.SlideConflict4Activity"></activity>
     </application>
 
 </manifest>
