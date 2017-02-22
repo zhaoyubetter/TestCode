@@ -15,6 +15,7 @@ import java.util.List;
 import test.better.com.leak.view.bean.ViewInfoBean;
 import test.better.com.leak.view.slideconflict.SlideConflict1Activity;
 import test.better.com.leak.view.slideconflict.SlideConflict2Activity;
+import test.better.com.leak.view.slideconflict.SlideConflict3Activity;
 
 /**
  * Created by zhaoyu1 on 2017/2/16.
@@ -34,7 +35,7 @@ public class ViewActivity extends AppCompatActivity {
         mDatas.add(new ViewInfoBean("3种动画", AnimDiffActivity.class));
         mDatas.add(new ViewInfoBean("滑动冲突1-外部解决法", SlideConflict1Activity.class));
         mDatas.add(new ViewInfoBean("滑动冲突1-内部解决法", SlideConflict2Activity.class));
-
+        mDatas.add(new ViewInfoBean("滑动冲突2-嵌套滑动", SlideConflict3Activity.class));
 
         listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mDatas));
