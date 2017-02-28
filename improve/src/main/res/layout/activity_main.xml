@@ -46,4 +46,10 @@
         android:layout_height="wrap_content"
         android:text="View 相关" />
 
+    <Button
+        android:id="@+id/custom_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义View" />
+
 </LinearLayout>
