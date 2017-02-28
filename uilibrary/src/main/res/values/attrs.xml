@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 4周可画分割线的TextView -->
+    <declare-styleable name="DivideTextView">
+        <attr name="dt_drawable" format="reference|color" />
+        <attr name="dt_dividerSize" format="dimension" />
+        <!-- 分割线padding，左右上下padding，上下左右padding -->
+        <attr name="dt_dividerPadding" format="dimension" />
+        <attr name="dt_divideGravity">
+            <flag name="none" value="0x01" />
+            <flag name="left" value="0x02" />
+            <flag name="top" value="0x04" />
+            <flag name="right" value="0x08" />
+            <flag name="bottom" value="0x10" />
+        </attr>
+    </declare-styleable>
+</resources>
