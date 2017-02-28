@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- DividerTextView 的默认style -->
+    <style name="Def_Style_DividerTextView">
+        <item name="dt_divideGravity">none</item>
+        <item name="dt_dividerPadding">0dp</item>
+        <item name="dt_dividerSize">1dp</item>
+        <item name="dt_drawable">#88cc00</item>
+    </style>
+    
 </resources>

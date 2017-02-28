@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.IntDef;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.lang.annotation.Retention;
@@ -17,6 +18,8 @@ import java.lang.annotation.RetentionPolicy;
  * Created by zhaoyu1 on 2017/2/28.
  */
 public class DivideTextView extends TextView {
+
+    private static final boolean DEBUG = true;
 
     public static final int NONE = 0x01;     // 0000 0001
     public static final int LEFT = 0x02;      // 0000 0010
@@ -53,12 +56,23 @@ public class DivideTextView extends TextView {
         setWillNotDraw(false);
 
         // 初始化属性
-        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DivideTextView, defStyleAttr, 0);
+        // final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DivideTextView, defStyleAttr, R.style.Def_Style_DividerTextView);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DivideTextView, R.attr.Def_Style_Attr_DividerTextView, 0);
         try {
             setDivideDrawable(a.getDrawable(R.styleable.DivideTextView_dt_drawable));
             setDivideGravityInner(a.getInt(R.styleable.DivideTextView_dt_divideGravity, NONE));
             setDivideSize((int) a.getDimension(R.styleable.DivideTextView_dt_dividerSize, 0f));
             setDividePadding((int) a.getDimension(R.styleable.DivideTextView_dt_dividerPadding, 0f));
+
+            // 测试代码：
+            if (DEBUG) {
+                int padding = (int) a.getDimension(R.styleable.DivideTextView_dt_dividerPadding, 0f);
+                int size = (int) a.getDimension(R.styleable.DivideTextView_dt_dividerSize, 0f);
+
+                Log.e("better", "dividerPadding: " + padding);
+                Log.e("better", "dividerSize: " + size);
+                Log.e("better", "Drawable: " + a.getColor(R.styleable.DivideTextView_dt_drawable, 0));
+            }
         } finally {
             if (a != null) {
                 a.recycle();
@@ -69,7 +83,7 @@ public class DivideTextView extends TextView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        // 判断响应的位为1
+        // 判断响应的位是否为1
         drawDivide(canvas, mDivideGravity == (mDivideGravity | LEFT),
                 mDivideGravity == (mDivideGravity | TOP),
                 mDivideGravity == (mDivideGravity | RIGHT),

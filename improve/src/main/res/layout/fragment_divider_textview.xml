@@ -9,11 +9,9 @@
     <ui.better.DivideTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:text="开始放大招了"
         android:textSize="20sp"
-        app:dt_divideGravity="top|right|bottom|left"
-        app:dt_dividerPadding="5dp"
-        app:dt_dividerSize="1dp"
-        app:dt_drawable="#22bbcc" />
+        app:dt_divideGravity="top|right|bottom|left" />
 
 </LinearLayout>

@@ -14,4 +14,7 @@
             <flag name="bottom" value="0x10" />
         </attr>
     </declare-styleable>
+
+    <!-- 指向style的引入类型 -->
+    <attr name="Def_Style_Attr_DividerTextView" format="reference" />
 </resources>
