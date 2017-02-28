@@ -78,6 +78,19 @@ public class DivideTextView extends TextView {
                 a.recycle();
             }
         }
+
+        /* 第二种获取自定义属性的方式：
+        final int n = a.getIndexCount();
+        for (int i = 0; i < n; i++) {
+            if (i == R.styleable.DivideTextView_dt_drawable) {
+            } else if (i == R.styleable.DivideTextView_dt_divideGravity) {
+                setDivideDrawable(a.getDrawable(i));
+            } else if (i == R.styleable.DivideTextView_dt_dividerSize) {
+                setDivideGravityInner(a.getInt(i, NONE));
+            } else if (i == R.styleable.DivideTextView_dt_dividerPadding) {
+                setDividePadding((int) a.getDimension(i, 0f));
+            }
+        }*/
     }
 
     @Override
