@@ -19,7 +19,7 @@ import java.lang.annotation.RetentionPolicy;
  */
 public class DivideTextView extends TextView {
 
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     public static final int NONE = 0x01;     // 0000 0001
     public static final int LEFT = 0x02;      // 0000 0010
@@ -131,6 +131,7 @@ public class DivideTextView extends TextView {
 
     public void setDividePadding(int mDividePadding) {
         this.mDividePadding = mDividePadding;
+        invalidate();
     }
 
     public void setDivideGravity(@DivideGravity int divideGravity) {
@@ -139,13 +140,16 @@ public class DivideTextView extends TextView {
 
     public void setDivideGravityInner(int mDivideGravity) {
         this.mDivideGravity = mDivideGravity;
+        invalidate();
     }
 
     public void setDivideDrawable(Drawable mDivideDrawable) {
         this.mDivideDrawable = mDivideDrawable;
+        invalidate();
     }
 
     public void setDivideSize(int mDivideSize) {
         this.mDivideSize = mDivideSize;
+        invalidate();
     }
 }
