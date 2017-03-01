@@ -33,4 +33,11 @@
         <item>13 item</item>
         <item>14 item</item>
     </string-array>
+
+    <string-array name="gravity1">
+        <item>左</item>
+        <item>上</item>
+        <item>右</item>
+        <item>下</item>
+    </string-array>
 </resources>

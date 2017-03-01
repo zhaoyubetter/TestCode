@@ -7,11 +7,46 @@
     android:padding="16dp">
 
     <ui.better.DivideTextView
+        android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="开始放大招了"
         android:textSize="20sp"
         app:dt_divideGravity="top|right|bottom|left" />
+
+    <test.better.com.leak.custom_view.SeekLayout
+        android:id="@+id/seekLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:sl_info="文字大小：" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="分割线" />
+
+    <test.better.com.leak.custom_view.CheckLayout
+        android:id="@+id/checkLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cl_items="@array/gravity1" />
+
+    <test.better.com.leak.custom_view.SeekLayout
+        android:id="@+id/seekLayout_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:sl_info="分割线大小"
+        app:sl_max="10" />
+
+    <test.better.com.leak.custom_view.SeekLayout
+        android:id="@+id/seekLayout_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:sl_info="分割线Padding"
+        app:sl_max="10" />
 
 </LinearLayout>

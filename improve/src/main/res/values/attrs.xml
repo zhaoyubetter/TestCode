@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SeekLayout">
+        <attr name="sl_max" format="integer" />
+        <attr name="sl_info" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CheckLayout">
+        <attr name="cl_items" format="reference" />
+    </declare-styleable>
+</resources>
