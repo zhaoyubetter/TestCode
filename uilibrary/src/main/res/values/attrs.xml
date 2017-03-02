@@ -18,10 +18,4 @@
     <!-- 指向style的引入类型 -->
     <attr name="Def_Style_Attr_DividerTextView" format="reference" />
 
-    <!-- 加入drawable图片后，居中的TextView -->
-    <declare-styleable name="CenterTextView">
-        <attr name="cv_drawableWidth" format="dimension" />
-        <attr name="cv_drawableHeight" format="dimension" />
-    </declare-styleable>
-
 </resources>
