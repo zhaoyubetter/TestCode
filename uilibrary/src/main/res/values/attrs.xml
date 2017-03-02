@@ -15,6 +15,21 @@
         </attr>
     </declare-styleable>
 
+    <!--CenterGridLayout 居中对齐表格-->
+    <declare-styleable name="CenterGridLayout">
+        <attr name="cl_colCount" format="integer" />
+        <attr name="cl_itemWidth" format="dimension" />
+        <attr name="cl_itemHeight" format="dimension|enum">
+            <enum name="auto_height" value="-1" />
+        </attr>
+        <attr name="cl_horizontalPadding" format="dimension" />
+        <attr name="cl_verticalPadding" format="dimension" />
+        <attr name="cl_itemSizeMode" format="enum">
+            <enum name="item_width" value="0x00" />
+            <enum name="horizontal_padding" value="0x01" />
+        </attr>
+    </declare-styleable>
+
     <!-- 指向style的引入类型 -->
     <attr name="Def_Style_Attr_DividerTextView" format="reference" />
 
