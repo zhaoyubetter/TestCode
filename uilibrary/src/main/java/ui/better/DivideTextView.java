@@ -152,4 +152,20 @@ public class DivideTextView extends TextView {
         this.mDivideSize = mDivideSize;
         invalidate();
     }
+
+    @Override
+    protected void drawableStateChanged() {
+        super.drawableStateChanged();
+        if (mDivideDrawable != null) {
+            mDivideDrawable.setState(getDrawableState());
+        }
+    }
+
+    @Override
+    public void jumpDrawablesToCurrentState() {
+        super.jumpDrawablesToCurrentState();
+        if (mDivideDrawable != null) {
+            mDivideDrawable.jumpToCurrentState();
+        }
+    }
 }
