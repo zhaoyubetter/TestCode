@@ -48,7 +48,7 @@ public class DivideTextView extends TextView {
     }
 
     public DivideTextView(Context context, AttributeSet attrs) {
-        this(context, attrs, com.android.internal.R.attr.textViewStyle);
+        this(context, attrs, android.R.attr.textViewStyle);
     }
 
     public DivideTextView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -120,11 +120,11 @@ public class DivideTextView extends TextView {
             mDivideDrawable.draw(canvas);
         }
         if (drawRight) {
-            mDivideDrawable.setBounds(width - mDivideSize, mDividePadding, width + mDivideSize, height - mDividePadding);
+            mDivideDrawable.setBounds(width - mDivideSize, mDividePadding, width, height - mDividePadding);
             mDivideDrawable.draw(canvas);
         }
         if (drawBottom) {
-            mDivideDrawable.setBounds(mDividePadding, height - mDivideSize, width - mDividePadding, height + mDivideSize);
+            mDivideDrawable.setBounds(mDividePadding, height - mDivideSize, width - mDividePadding, height);
             mDivideDrawable.draw(canvas);
         }
     }
