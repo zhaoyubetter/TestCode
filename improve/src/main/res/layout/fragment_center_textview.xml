@@ -1,26 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:auto="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ui.better.CenterGridLayout
+        android:id="@+id/centerLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="系统的(TextView drawable 不能定制大小,文字不居中)" />
+        android:layout_marginBottom="4dp"
+        android:animateLayoutChanges="true"
+        android:background="#ffcccc"
+        auto:cl_horizontalPadding="8dp"
+        auto:cl_itemHeight="40dp"
+        auto:cl_itemWidth="50dp"
+        auto:cl_verticalPadding="8dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:drawablePadding="32dp"
-        android:text="开始放大招了"
-        android:textSize="16sp" />
+    </ui.better.CenterGridLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="使用CenterTextView" />
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:text="添加" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="移除" />
+    </LinearLayout>
+
 
 </LinearLayout>

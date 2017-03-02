@@ -44,5 +44,6 @@ public class CustomViewMainActivity extends AppCompatActivity {
 
     private void buildDatas() {
         mDatas.add(new FuncItem("DivideTextView", DivideTextViewFragment.class.getName()));
+        mDatas.add(new FuncItem("CenterGridLayout", CenterGridLayoutFragment.class.getName()));
     }
 }
