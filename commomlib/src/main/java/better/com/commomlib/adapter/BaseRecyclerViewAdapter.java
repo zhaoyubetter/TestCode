@@ -20,9 +20,7 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
     }
 
     public void replaceData(List<T> list) {
-        this.data = list;
-        if (this.data == null) {
-        }
+        this.data = new ArrayList<>(list);
         notifyDataSetChanged();
     }
 
