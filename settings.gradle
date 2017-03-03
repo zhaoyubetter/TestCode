@@ -33,7 +33,7 @@ extra 属性的方式设置到 gradle 对象中
 }
 //初始化
 initMinshengGradleEnvironment()
-include ':app', ':groovytest2', ':rxandroidtest', ':improve'
+include ':app', ':groovytest2', ':rxandroidtest', ':improve', ':commomlib'
 
 // 输出
 println "home Dir: " + gradle.gradleHomeDir
