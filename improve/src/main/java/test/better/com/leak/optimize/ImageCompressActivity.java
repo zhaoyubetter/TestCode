@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import better.com.commomlib.utils.BitmapUtils;
 import test.better.com.leak.R;
-import test.better.com.leak.utils.BitmapUtils;
 
 /**
  * 压缩图片 BitmapFactory

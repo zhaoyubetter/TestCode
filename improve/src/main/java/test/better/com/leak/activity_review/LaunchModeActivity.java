@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import better.com.commomlib.utils.RunningTaskInfoUtils;
 import test.better.com.leak.Apps;
 import test.better.com.leak.R;
-import test.better.com.leak.utils.RunningTaskInfoUtils;
 
 /**
  * Created by zhaoyu1 on 2017/2/15.
