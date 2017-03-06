@@ -17,7 +17,12 @@ import java.util.Map;
 import better.basenet.base.request.AbsRequest;
 
 /**
- * Created by zhaoyu1 on 2017/3/6
+ * Volley请求封装类
+ *
+ * @author zhaoyu
+ * @author hufeng
+ * @version 1.0
+ * @since 2017/3/6.
  */
 public class VolleyRequest extends AbsRequest {
 
@@ -29,18 +34,18 @@ public class VolleyRequest extends AbsRequest {
 
     @Override
     protected void get() {
-        realRequest(Request.Method.POST);
+        realRequest(Request.Method.GET);
     }
 
     @Override
     protected void post() {
-        realRequest(Request.Method.GET);
+        realRequest(Request.Method.POST);
     }
 
     private void realRequest(final int reqType) {
         int tReqType = Request.Method.GET;
         String tUrl = mUrl;
-        switch (reqType) {
+        switch (tReqType) {
             case Request.Method.GET:
                 tReqType = Request.Method.GET;
                 tUrl = generateUrl(mUrl, mParams);
@@ -74,7 +79,7 @@ public class VolleyRequest extends AbsRequest {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> tParams = super.getParams();
-                if (mParams != null && mParams.size() > 0) {
+                if (mParams != null && mParams.size() > 0 && reqType == Request.Method.POST) {
                     tParams = mParams;
                 }
                 return tParams;
