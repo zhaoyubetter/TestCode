@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- 在当前使用的主题中，配置 Def_Style_Attr_DividerTextView -->
+        <item name="Def_Style_Attr_DividerTextView">@style/Def_Style_DividerTextView</item>
     </style>
 
 </resources>

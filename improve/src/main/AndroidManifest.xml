@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="test.better.com.leak"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="test.better.com.leak">
 
     <application
         android:name=".Apps"
@@ -33,6 +33,9 @@
         <activity android:name=".view.slideconflict.SlideConflict4Activity"/>
         <activity android:name=".test.Instrumentation1Activity">
         </activity>
+        <activity android:name=".custom_view.CustomViewMainActivity"></activity>
+        <activity android:name="test.better.com.leak.FuncActivity" />
+
     </application>
 
 </manifest>

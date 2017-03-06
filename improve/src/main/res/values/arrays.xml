@@ -33,4 +33,85 @@
         <item>13 item</item>
         <item>14 item</item>
     </string-array>
+
+    <string-array name="gravity1">
+        <item>左</item>
+        <item>上</item>
+        <item>右</item>
+        <item>下</item>
+    </string-array>
+
+    <integer-array name="color_items">
+        <item>0xFFFFFFFF</item>
+        <item>0xFFFF0000</item>
+        <item>0xFF00FF00</item>
+        <item>0xFF0000FF</item>
+        <item>0xFFFF00FF</item>
+        <item>0xFF00FFFF</item>
+        <item>0xFFFFFF00</item>
+        <item>0xFF000000</item>
+        <item>0xFF70DB93</item>
+        <item>0xFF5C3317</item>
+        <item>0xFF9F5F9F</item>
+        <item>0xFFB5A642</item>
+        <item>0xFFD9D919</item>
+        <item>0xFFA67D3D</item>
+        <item>0xFF8C7853</item>
+        <item>0xFFA67D3D</item>
+        <item>0xFF5F9F9F</item>
+        <item>0xFFD98719</item>
+        <item>0xFFB87333</item>
+        <item>0xFFFF7F00</item>
+        <item>0xFF42426F</item>
+        <item>0xFF5C4033</item>
+        <item>0xFF2F4F2F</item>
+        <item>0xFF4A766E</item>
+        <item>0xFF4F4F2F</item>
+        <item>0xFF9932CD</item>
+        <item>0xFF871F78</item>
+        <item>0xFF6B238E</item>
+        <item>0xFF2F4F4F</item>
+        <item>0xFF97694F</item>
+        <item>0xFF7093DB</item>
+        <item>0xFF855E42</item>
+        <item>0xFF856363</item>
+        <item>0xFFD19275</item>
+        <item>0xFF8E2323</item>
+        <item>0xFF238E23</item>
+        <item>0xFFCD7F32</item>
+        <item>0xFFDBDB70</item>
+        <item>0xFFC0C0C0</item>
+        <item>0xFF527F76</item>
+        <item>0xFF93DB70</item>
+        <item>0xFF215E21</item>
+        <item>0xFF4E2F2F</item>
+        <item>0xFF9F9F5F</item>
+        <item>0xFFC0D9D9</item>
+        <item>0xFFA8A8A8</item>
+        <item>0xFF8F8FBD</item>
+        <item>0xFFE9C2A6</item>
+        <item>0xFF32CD32</item>
+        <item>0xFFE47833</item>
+        <item>0xFF8E236B</item>
+        <item>0xFF32CD99</item>
+        <item>0xFF3232CD</item>
+        <item>0xFF6B8E23</item>
+        <item>0xFFEAEAAE</item>
+        <item>0xFF9370DB</item>
+        <item>0xFF426F42</item>
+        <item>0xFF7F00FF</item>
+        <item>0xFF7FFF00</item>
+        <item>0xFF70DBDB</item>
+        <item>0xFFDB7093</item>
+        <item>0xFFA68064</item>
+        <item>0xFF2F2F4F</item>
+        <item>0xFF23238E</item>
+        <item>0xFF4D4DFF</item>
+        <item>0xFFFF6EC7</item>
+        <item>0xFF00009C</item>
+        <item>0xFFEBC79E</item>
+        <item>0xFFCFB53B</item>
+        <item>0xFFFF7F00</item>
+    </integer-array>
+
 </resources>

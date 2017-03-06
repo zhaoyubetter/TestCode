@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 4周可画分割线的TextView -->
+    <declare-styleable name="DivideTextView">
+        <attr name="dt_drawable" format="reference|color" />
+        <attr name="dt_dividerSize" format="dimension" />
+        <!-- 分割线padding，左右上下padding，上下左右padding -->
+        <attr name="dt_dividerPadding" format="dimension" />
+        <attr name="dt_divideGravity">
+            <flag name="none" value="0x01" />
+            <flag name="left" value="0x02" />
+            <flag name="top" value="0x04" />
+            <flag name="right" value="0x08" />
+            <flag name="bottom" value="0x10" />
+        </attr>
+    </declare-styleable>
+
+    <!--CenterGridLayout 居中对齐表格-->
+    <declare-styleable name="CenterGridLayout">
+        <attr name="cl_colCount" format="integer" />
+        <attr name="cl_itemWidth" format="dimension" />
+        <attr name="cl_itemHeight" format="dimension|enum">
+            <enum name="auto_height" value="-1" />
+        </attr>
+        <attr name="cl_horizontalPadding" format="dimension" />
+        <attr name="cl_verticalPadding" format="dimension" />
+        <attr name="cl_itemSizeMode" format="enum">
+            <enum name="item_width" value="0x00" />
+            <enum name="horizontal_padding" value="0x01" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 指向style的引入类型 -->
+    <attr name="Def_Style_Attr_DividerTextView" format="reference" />
+
+</resources>
