@@ -129,22 +129,22 @@ public class ExampleInstrumentedTest {
     @Test
     public void testVolleySSL() {
         Context appContext = InstrumentationRegistry.getTargetContext();
-        AbsRequest req = new VolleyRequest.Builder(appContext).url("https://www.baidu.com/")
+        AbsRequest req = new VolleyRequest.Builder(appContext).url("https://www.alipay.com/")
                 .timeout(2000)
                 .callback(new IRequestCallBack() {
                     @Override
                     public void onSuccess(Object o) {
-                        Log.e("volley", o.toString());
+                        Log.e("volley success", o.toString());
                     }
 
                     @Override
                     public void onFailure(Throwable e) {
-                        Log.e("volley", e.toString());
+                        Log.e("volley failure", e.toString());
                     }
                 }).build();
         req.request();
 
 
-        SystemClock.sleep(2000);
+        SystemClock.sleep(3000);
     }
 }
