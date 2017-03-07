@@ -129,8 +129,7 @@ public class ExampleInstrumentedTest {
     @Test
     public void testVolleySSL() {
         Context appContext = InstrumentationRegistry.getTargetContext();
-        AbsRequest req = new VolleyRequest.Builder(appContext).url("https://www.alipay.com/")
-                .timeout(2000)
+        final AbsRequest.Builder builder = new VolleyRequest.Builder(appContext).url("https://api.douban.com/v2/book/1220562")
                 .callback(new IRequestCallBack() {
                     @Override
                     public void onSuccess(Object o) {
@@ -141,8 +140,35 @@ public class ExampleInstrumentedTest {
                     public void onFailure(Throwable e) {
                         Log.e("volley failure", e.toString());
                     }
-                }).build();
-        req.request();
+                });
+
+        builder.build().request();
+
+        builder.url("https://www.jd.com/").callback(new IRequestCallBack() {
+            @Override
+            public void onSuccess(Object o) {
+                Log.e("volley success", o.toString());
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+                Log.e("volley failure", e.toString());
+            }
+        }).build().request();
+
+//        AbsRequest req2 = new VolleyRequest.Builder(appContext).url("https://www.jd.com/")
+//                .callback(new IRequestCallBack() {
+//                    @Override
+//                    public void onSuccess(Object o) {
+//                        Log.e("volley success", o.toString());
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Throwable e) {
+//                        Log.e("volley failure", e.toString());
+//                    }
+//                }).build();
+//        req2.request();
 
 
         SystemClock.sleep(3000);
