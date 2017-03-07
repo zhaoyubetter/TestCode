@@ -1,5 +1,6 @@
 package better.basenet.base.request;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -15,6 +16,11 @@ import java.util.Map;
 public abstract class AbsRequest implements IRequest {
 
     public static final String CHAR_SET = "UTF-8";
+
+    /**
+     * 默认请求超时时间 10s
+     */
+    public static final long DEFAULT_TIME_OUT = 10 * 1000;
 
     /**
      * url 地址

@@ -30,4 +30,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
 }
