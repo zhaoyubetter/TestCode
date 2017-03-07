@@ -97,6 +97,8 @@ public class VolleyRequest extends AbsRequest {
         // 设置此次请求超时时间
         if (mTimeOut > 1000) {
             mRequest.setRetryPolicy(new DefaultRetryPolicy((int) mTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        } else {
+            mRequest.setRetryPolicy(new DefaultRetryPolicy((int) DEFAULT_TIME_OUT, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         }
         mRequest.setTag(mTag);
         requestQueue.add(mRequest);
