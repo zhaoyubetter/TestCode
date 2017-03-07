@@ -1,10 +1,9 @@
-package test.better.com.leak.utils;
+package better.com.commomlib.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.support.annotation.DrawableRes;
 import android.util.TypedValue;
 
 import java.io.FileInputStream;

@@ -47,6 +47,12 @@
         android:text="View 相关" />
 
     <Button
+        android:id="@+id/test"
+        android:text="测试"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
         android:id="@+id/custom_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

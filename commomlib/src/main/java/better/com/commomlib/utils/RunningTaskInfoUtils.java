@@ -1,4 +1,4 @@
-package test.better.com.leak.utils;
+package better.com.commomlib.utils;
 
 import android.app.ActivityManager;
 import android.content.Context;

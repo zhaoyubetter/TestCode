@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 import java.util.HashMap;
 import java.util.Map;
 
-import better.basenet.base.request.IRequest;
+import better.basenet.base.request.AbsRequest;
 import better.basenet.base.request.IRequestCallBack;
 import better.basenet.volley.VolleyRequest;
 
@@ -61,9 +61,9 @@ public class ExampleInstrumentedTest {
 
         Map<String, String> params = new HashMap<>();
         params.put("key1", "value1");
-        params.put("key1", "value2");
+        params.put("key2", "value2");
 
-        new VolleyRequest.Builder(appContext).url("http://jdme.jd.com/jmeMobile/getRandomToken").
+        AbsRequest req = new VolleyRequest.Builder(appContext).url("http://www.jd.com").
                 headders(headers).body(params).type(VolleyRequest.RequestType.GET).
                 callback(new IRequestCallBack() {
                     @Override
@@ -75,8 +75,76 @@ public class ExampleInstrumentedTest {
                     public void onFailure(Throwable e) {
                         Log.e("volley", e.toString());
                     }
-                }).build().request();
+                }).build();
+        req.request();
 
         SystemClock.sleep(500);
+    }
+
+    @Test
+    public void testVolleyTimeout() {
+        Context appContext = InstrumentationRegistry.getTargetContext();
+        new VolleyRequest.Builder(appContext).url("http://www.jd.com")
+                .timeout(1200)
+                .callback(new IRequestCallBack() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        Log.e("volley", o.toString());
+                    }
+
+                    @Override
+                    public void onFailure(Throwable e) {
+                        Log.e("volley", e.toString());
+                    }
+                }).build().request();
+
+        SystemClock.sleep(2000);
+    }
+
+    @Test
+    public void testVolleyCancel() {
+        Context appContext = InstrumentationRegistry.getTargetContext();
+        AbsRequest req = new VolleyRequest.Builder(appContext).url("http://www.jd.com")
+                .timeout(2000).tag("hello")
+                .callback(new IRequestCallBack() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        Log.e("volley", o.toString());
+                    }
+
+                    @Override
+                    public void onFailure(Throwable e) {
+                        Log.e("volley", e.toString());
+                    }
+                }).build();
+        req.request();
+
+        SystemClock.sleep(300);
+        //req.cancel();
+
+
+        SystemClock.sleep(2000);
+    }
+
+    @Test
+    public void testVolleySSL() {
+        Context appContext = InstrumentationRegistry.getTargetContext();
+        AbsRequest req = new VolleyRequest.Builder(appContext).url("https://www.alipay.com/")
+                .timeout(2000)
+                .callback(new IRequestCallBack() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        Log.e("volley success", o.toString());
+                    }
+
+                    @Override
+                    public void onFailure(Throwable e) {
+                        Log.e("volley failure", e.toString());
+                    }
+                }).build();
+        req.request();
+
+
+        SystemClock.sleep(3000);
     }
 }

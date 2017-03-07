@@ -20,4 +20,9 @@ public interface IRequest {
      * 执行请求，默认是 get 方式
      */
     void request();
+
+	/**
+     * 取消网络请求
+     */
+    void cancel();
 }
