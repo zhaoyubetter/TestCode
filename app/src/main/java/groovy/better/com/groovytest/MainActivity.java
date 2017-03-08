@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.PersistableBundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -22,6 +23,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import better.basenet.base.request.AbsRequest;
+import better.basenet.base.request.IRequestCallBack;
+import better.basenet.okhttp.OkHttpRequest;
 import groovy.better.com.groovytest.selector.demo.DemoActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -85,6 +89,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DemoActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.net).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AbsRequest req = new OkHttpRequest.Builder().url("http://httpbin.org/delay/5").callback(new IRequestCallBack() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        Log.e("okHttp success", o.toString());
+                    }
+
+                    @Override
+                    public void onFailure(Throwable e) {
+                        Log.e("okHttp failure", e.toString());
+                    }
+                }).timeout(1200).build();
+                req.request();
             }
         });
     }
