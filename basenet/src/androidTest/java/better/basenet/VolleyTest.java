@@ -64,7 +64,7 @@ public class VolleyTest {
         params.put("key2", "value2");
 
         AbsRequest req = new VolleyRequest.Builder(appContext).url("http://www.jd.com").
-                headders(headers).body(params).type(VolleyRequest.RequestType.GET).
+                headers(headers).body(params).type(VolleyRequest.RequestType.GET).
                 callback(new IRequestCallBack() {
                     @Override
                     public void onSuccess(Object o) {
@@ -84,7 +84,7 @@ public class VolleyTest {
     @Test
     public void testVolleyTimeout() {
         Context appContext = InstrumentationRegistry.getTargetContext();
-        new VolleyRequest.Builder(appContext).url("http://www.jd.com")
+        new VolleyRequest.Builder(appContext).url("http://www.docod.com")
                 .timeout(1200)
                 .callback(new IRequestCallBack() {
                     @Override

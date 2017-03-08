@@ -41,10 +41,11 @@ public class OkHttpRequest extends AbsRequest {
     }
 
     private void realRequest(Request.Builder tBuilder) {
-
-        OkHttpClient tClient = null;
-        if (mTimeOut > 1000) {
-            final OkHttpClient.Builder builder = sOkHttpClient.newBuilder().connectTimeout(mTimeOut, TimeUnit.MILLISECONDS);
+        // 判断此次请求，超时时间是否不同，如果不同，创建 Client
+        OkHttpClient tClient = sOkHttpClient;
+        if (mTimeOut > 1000 && mTimeOut != DEFAULT_TIME_OUT) {
+            final OkHttpClient.Builder builder = sOkHttpClient.newBuilder().connectTimeout(mTimeOut, TimeUnit.MILLISECONDS).readTimeout(mTimeOut, TimeUnit.MILLISECONDS)
+                    .writeTimeout(mTimeOut, TimeUnit.MILLISECONDS);
             tClient = builder.build();
         } else {
             tClient = sOkHttpClient;

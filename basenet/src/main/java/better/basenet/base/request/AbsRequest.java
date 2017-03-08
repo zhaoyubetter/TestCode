@@ -166,7 +166,7 @@ public abstract class AbsRequest implements IRequest {
             return this;
         }
 
-        public Builder headders(Map<String, String> headers) {
+        public Builder headers(Map<String, String> headers) {
             this.mHeader = headers;
             return this;
         }
