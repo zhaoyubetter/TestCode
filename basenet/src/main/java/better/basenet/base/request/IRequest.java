@@ -1,6 +1,8 @@
 package better.basenet.base.request;
 
 
+import java.io.File;
+
 /**
  * 网络请求封装接口
  *
@@ -21,8 +23,9 @@ public interface IRequest {
      */
     void request();
 
-	/**
+    /**
      * 取消网络请求
      */
     void cancel();
+
 }

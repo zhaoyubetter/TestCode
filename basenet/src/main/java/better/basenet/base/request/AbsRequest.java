@@ -1,6 +1,8 @@
 package better.basenet.base.request;
 
-import java.io.IOException;
+import android.util.Pair;
+
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -12,6 +14,9 @@ import java.util.Map;
  * @author hufeng
  * @version 1.0
  * @since 2017/3/6.
+ * =========================== UPDATE LOG: =================================
+ * Date: 2017/3/9 add member filed mFiles
+ * =========================== UPDATE LOG: =================================
  */
 public abstract class AbsRequest implements IRequest {
 
@@ -50,12 +55,19 @@ public abstract class AbsRequest implements IRequest {
     /**
      * 回调
      */
-    protected IRequestCallBack mCallBack;
+    protected AbsRequestCallBack mCallBack;
 
     /**
      * 请求方式
      */
     protected int mReqType;
+
+    /**
+     *
+     */
+    protected Map<String, File> mUploadFiles;
+
+    protected Pair<String, File> mDownFile;
 
     protected AbsRequest(Builder builder) {
         this.mUrl = builder.mUrl;
@@ -65,6 +77,8 @@ public abstract class AbsRequest implements IRequest {
         this.mReqType = builder.mReqType;
         this.mParams = builder.mParams;
         this.mHeader = builder.mHeader;
+        this.mUploadFiles = builder.mUploadFiles;
+        this.mDownFile = builder.mDownFile;
     }
 
     @Override
@@ -146,12 +160,19 @@ public abstract class AbsRequest implements IRequest {
         /**
          * 回调
          */
-        private IRequestCallBack mCallBack;
+        private AbsRequestCallBack mCallBack;
 
         /**
          * 请求方式
          */
         private int mReqType;
+
+        /**
+         * 上传的文件
+         */
+        private Map<String, File> mUploadFiles;
+
+        private Pair<String, File> mDownFile;
 
         public Builder() {
         }
@@ -181,7 +202,7 @@ public abstract class AbsRequest implements IRequest {
             return this;
         }
 
-        public Builder callback(IRequestCallBack callBack) {
+        public Builder callback(AbsRequestCallBack callBack) {
             this.mCallBack = callBack;
             return this;
         }
@@ -192,6 +213,16 @@ public abstract class AbsRequest implements IRequest {
          */
         public Builder type(int reqType) {
             this.mReqType = reqType;
+            return this;
+        }
+
+        public Builder uploadFiles(Map<String, File> fileMaps) {
+            this.mUploadFiles = fileMaps;
+            return this;
+        }
+
+        public Builder downFile(Pair<String, File> downFile) {
+            this.mDownFile = downFile;
             return this;
         }
 

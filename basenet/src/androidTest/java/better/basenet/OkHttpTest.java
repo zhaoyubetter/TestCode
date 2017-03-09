@@ -14,9 +14,8 @@ import java.util.Map;
 
 import better.basenet.base.request.AbsRequest;
 import better.basenet.base.request.IRequest;
-import better.basenet.base.request.IRequestCallBack;
+import better.basenet.base.request.AbsRequestCallBack;
 import better.basenet.okhttp.OkHttpRequest;
-import better.basenet.volley.VolleyRequest;
 
 import static org.junit.Assert.assertEquals;
 
@@ -38,7 +37,7 @@ public class OkHttpTest {
     @Test
     public void testBase1() {
         final AbsRequest.Builder builder = new OkHttpRequest.Builder().url("https://www.baidu.com/");
-        builder.callback(new IRequestCallBack() {
+        builder.callback(new AbsRequestCallBack() {
             @Override
             public void onSuccess(Object o) {
                 Log.e("okHttp success", o.toString());
@@ -64,7 +63,7 @@ public class OkHttpTest {
         params.put("key1", "value1");
         params.put("key2", "value2");
 
-        new OkHttpRequest.Builder().url("https://www.baidu.com/").body(params).headers(headers).type(IRequest.RequestType.POST).callback(new IRequestCallBack() {
+        new OkHttpRequest.Builder().url("https://www.baidu.com/").body(params).headers(headers).type(IRequest.RequestType.POST).callback(new AbsRequestCallBack() {
             @Override
             public void onSuccess(Object o) {
                 Log.e("okHttp success", o.toString());
@@ -79,7 +78,7 @@ public class OkHttpTest {
 
     @Test
     public void testTimeOut() {
-        new OkHttpRequest.Builder().url("http://www.dodod.com/").callback(new IRequestCallBack() {
+        new OkHttpRequest.Builder().url("http://www.dodod.com/").callback(new AbsRequestCallBack() {
             @Override
             public void onSuccess(Object o) {
                 Log.e("okHttp success", o.toString());

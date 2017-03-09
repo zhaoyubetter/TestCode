@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import better.basenet.base.request.AbsRequest;
-import better.basenet.base.request.IRequestCallBack;
+import better.basenet.base.request.AbsRequestCallBack;
 import better.basenet.volley.VolleyRequest;
 
 import static org.junit.Assert.assertEquals;
@@ -37,7 +37,7 @@ public class VolleyTest {
     public void testVolleyBase1() {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        new VolleyRequest.Builder(appContext).url("https://www.baidu.com/").callback(new IRequestCallBack() {
+        new VolleyRequest.Builder(appContext).url("https://www.baidu.com/").callback(new AbsRequestCallBack() {
             @Override
             public void onSuccess(Object o) {
                 Log.e("volley", o.toString());
@@ -65,7 +65,7 @@ public class VolleyTest {
 
         AbsRequest req = new VolleyRequest.Builder(appContext).url("http://www.jd.com").
                 headers(headers).body(params).type(VolleyRequest.RequestType.GET).
-                callback(new IRequestCallBack() {
+                callback(new AbsRequestCallBack() {
                     @Override
                     public void onSuccess(Object o) {
                         Log.e("volley", o.toString());
@@ -86,7 +86,7 @@ public class VolleyTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
         new VolleyRequest.Builder(appContext).url("http://www.docod.com")
                 .timeout(1200)
-                .callback(new IRequestCallBack() {
+                .callback(new AbsRequestCallBack() {
                     @Override
                     public void onSuccess(Object o) {
                         Log.e("volley", o.toString());
@@ -106,7 +106,7 @@ public class VolleyTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
         AbsRequest req = new VolleyRequest.Builder(appContext).url("http://www.jd.com")
                 .timeout(2000).tag("hello")
-                .callback(new IRequestCallBack() {
+                .callback(new AbsRequestCallBack() {
                     @Override
                     public void onSuccess(Object o) {
                         Log.e("volley", o.toString());
@@ -130,7 +130,7 @@ public class VolleyTest {
     public void testVolleySSL() {
         Context appContext = InstrumentationRegistry.getTargetContext();
         final AbsRequest.Builder builder = new VolleyRequest.Builder(appContext).url("https://api.douban.com/v2/book/1220562")
-                .callback(new IRequestCallBack() {
+                .callback(new AbsRequestCallBack() {
                     @Override
                     public void onSuccess(Object o) {
                         Log.e("volley success", o.toString());
@@ -144,7 +144,7 @@ public class VolleyTest {
 
         builder.build().request();
 
-        builder.url("https://www.jd.com/").callback(new IRequestCallBack() {
+        builder.url("https://www.jd.com/").callback(new AbsRequestCallBack() {
             @Override
             public void onSuccess(Object o) {
                 Log.e("volley success", o.toString());

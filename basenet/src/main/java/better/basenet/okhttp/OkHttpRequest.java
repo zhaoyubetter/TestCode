@@ -1,21 +1,29 @@
 package better.basenet.okhttp;
 
 
+import android.util.Log;
+
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import better.basenet.base.request.AbsRequest;
+import better.basenet.utils.FileUtils;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Headers;
+import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.internal.Util;
 
 /**
  * okhttp 类
@@ -40,7 +48,64 @@ public class OkHttpRequest extends AbsRequest {
         super(builder);
     }
 
+    /**
+     * 下载文件
+     */
+    private void downFile() {
+        // 是否是下载
+        final OkHttpClient tClient = sOkHttpClient.newBuilder().addInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                Response originalResponse = chain.proceed(chain.request());
+                return originalResponse.newBuilder()
+                        .body(new ProgressResponseBody(originalResponse.body(), new ProgressCallback() {
+                            @Override
+                            public void update(long contentLength, long bytesRead, boolean done) {
+                                if (null != mCallBack) {
+                                    mCallBack.onProgressUpdate(contentLength, bytesRead, done);
+                                }
+                            }
+                        })).build();
+            }
+        }).build();
+
+        // 执行下载逻辑
+        tClient.newCall(new Request.Builder().url(mUrl).build()).enqueue(new Callback() {
+            Map<String, String> headerMap = null;            // 响应头
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                if (null != mCallBack) {
+                    mCallBack.onFailure(e);
+                }
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) {
+                if (null != mCallBack) {
+                    headerMap = getResponseHeaders(response);
+                    if (response.isSuccessful()) {
+                        InputStream inputStream = response.body().byteStream();
+                        try {
+                            FileUtils.saveFile(inputStream, mDownFile.second);
+                        } catch (IOException e) {
+                            mCallBack.onFailure(e);
+                        }
+                        mCallBack.onSuccess(mDownFile.second);
+                    } else {
+                        mCallBack.onFailure(new Exception(response.code() + " " + response.message()));
+                    }
+                }
+            }
+        });
+    }
+
     private void realRequest(Request.Builder tBuilder) {
+        if (mDownFile != null) {
+            downFile();
+            return;
+        }
+
         // 判断此次请求，超时时间是否不同，如果不同，创建 Client
         OkHttpClient tClient = sOkHttpClient;
         if (mTimeOut > 1000 && mTimeOut != DEFAULT_TIME_OUT) {
@@ -118,6 +183,8 @@ public class OkHttpRequest extends AbsRequest {
      * @return
      */
     private RequestBody getRequestBody() {
+        RequestBody requestBody = null;
+
         MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.setType(MultipartBody.FORM);
 
@@ -126,7 +193,30 @@ public class OkHttpRequest extends AbsRequest {
                 builder.addFormDataPart(entry.getKey(), entry.getValue());
             }
         }
-        return builder.build();
+
+        // 上传文件部分
+        if (null != mUploadFiles && mUploadFiles.size() > 0) {
+            for (Map.Entry<String, File> entry : mUploadFiles.entrySet()) {
+                builder.addFormDataPart(entry.getKey(), entry.getValue().getName(), RequestBody.create(MEDIA_TYPE_MARKDOWN, entry.getValue()));
+            }
+
+            requestBody = builder.build();
+            if (null != mCallBack) {
+                final ProgressRequestBody progressRequestBody = new ProgressRequestBody(requestBody, new ProgressCallback() {
+                    @Override
+                    public void update(long contentLength, long bytesRead, boolean done) {
+                        mCallBack.onProgressUpdate(contentLength, bytesRead, done);
+                    }
+                });
+                requestBody = progressRequestBody;
+            }
+        }
+
+        if (requestBody == null) {
+            requestBody = builder.build();
+        }
+
+        return requestBody;
     }
 
     /**

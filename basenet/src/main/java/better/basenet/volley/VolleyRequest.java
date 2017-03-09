@@ -12,6 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.io.File;
 import java.util.Map;
 
 import better.basenet.base.request.AbsRequest;
@@ -112,6 +113,7 @@ public class VolleyRequest extends AbsRequest {
             requestQueue.cancelAll(mTag);
         }
     }
+
 
     public static class Builder extends AbsRequest.Builder {
 
