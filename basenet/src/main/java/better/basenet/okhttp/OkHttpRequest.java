@@ -83,11 +83,11 @@ public class OkHttpRequest extends AbsRequest {
                     if (response.isSuccessful()) {
                         InputStream inputStream = response.body().byteStream();
                         try {
-                            FileUtils.saveFile(inputStream, mDownFile.second);
+                            FileUtils.saveFile(inputStream, mDownFile);
                         } catch (IOException e) {
                             mCallBack.onFailure(e);
                         }
-                        mCallBack.onSuccess(mDownFile.second);
+                        mCallBack.onSuccess(mDownFile);
                     } else {
                         mCallBack.onFailure(new Exception(response.code() + " " + response.message()));
                     }
