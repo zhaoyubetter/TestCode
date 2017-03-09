@@ -1,30 +1,27 @@
 package groovy.better.com.groovytest;
 
 import android.Manifest;
-import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.os.PersistableBundle;
-import android.os.SystemClock;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.util.Pair;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import better.basenet.base.request.AbsRequest;
-import better.basenet.base.request.IRequestCallBack;
+import better.basenet.base.request.IRequest;
+import better.basenet.base.request.AbsRequestCallBack;
 import better.basenet.okhttp.OkHttpRequest;
 import groovy.better.com.groovytest.selector.demo.DemoActivity;
 
@@ -95,7 +92,13 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.net).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AbsRequest req = new OkHttpRequest.Builder().url("http://httpbin.org/delay/5").callback(new IRequestCallBack() {
+
+
+                // 下载文件测试
+
+                final String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+                File file = new File(absolutePath + "/DCIM/Camera/down.jpg");
+                new OkHttpRequest.Builder().url("").callback(new AbsRequestCallBack() {
                     @Override
                     public void onSuccess(Object o) {
                         Log.e("okHttp success", o.toString());
@@ -105,8 +108,13 @@ public class MainActivity extends AppCompatActivity {
                     public void onFailure(Throwable e) {
                         Log.e("okHttp failure", e.toString());
                     }
-                }).timeout(1200).build();
-                req.request();
+
+                    @Override
+                    public void onProgressUpdate(long contentLength, long bytesRead, boolean done) {
+                        super.onProgressUpdate(contentLength, bytesRead, done);
+                        Log.e("okHttp success", String.format("total:%s, already:%s, isDone: %s", contentLength, bytesRead, done));
+                    }
+                }).downFile(new Pair<String, File>(null, file)).build().request();
             }
         });
     }

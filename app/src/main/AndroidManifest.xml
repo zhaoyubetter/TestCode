@@ -6,6 +6,7 @@
     <!-- －－－－－－－－－－－－－－－－－－－－－－－－－－ 各种权限－－－－－－－－－－－－－－－－－－－－－－－－－－－ -->
     <!-- 写sdcard权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 启动摄像头进行拍照权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- 手机震动权限 -->
