@@ -17,9 +17,21 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * 9 patch
+ *
  * @see <a>https://github.com/lguipeng</a>
  */
 public class BubbleDrawable extends Drawable {
+
+	public static final int LEFT = 0;
+	public static final int TOP = 1;
+	public static final int RIGHT = 2;
+	public static final int BOTTOM = 3;
+
+	@IntDef({LEFT, TOP, RIGHT, BOTTOM})
+	@Retention(RetentionPolicy.SOURCE)
+	public @interface ArrowDirection {
+
+	}
 
 	/**
 	 * 大小
@@ -68,6 +80,7 @@ public class BubbleDrawable extends Drawable {
 	 */
 	private boolean mArrowCenter;
 
+
 	private BubbleDrawable(Builder builder) {
 		this.mRect = builder.mRectF;
 		this.mRadius = builder.mRadius;
@@ -79,24 +92,14 @@ public class BubbleDrawable extends Drawable {
 		this.mArrowCenter = builder.mArrowCenter;
 	}
 
-	@IntDef({LEFT, TOP, RIGHT, BOTTOM})
-	@Retention(RetentionPolicy.SOURCE)
-	public @interface ArrowDirection {
-
-	}
-
-	public static final int LEFT = 0;
-	public static final int TOP = 1;
-	public static final int RIGHT = 2;
-	public static final int BOTTOM = 3;
-
 	@Override
 	public void draw(Canvas canvas) {
 		mPaint.setColor(mBubbleColor);
-		mPaint.setStyle(Paint.Style.FILL);
+
 		setUpPath(mArrowDirection, mPath);
 		canvas.drawPath(mPath, mPaint);
 	}
+
 
 	private void setUpPath(int mArrowDirection, Path mPath) {
 		switch (mArrowDirection) {
@@ -254,6 +257,16 @@ public class BubbleDrawable extends Drawable {
 		return PixelFormat.TRANSLUCENT;
 	}
 
+	@Override
+	public int getIntrinsicHeight() {
+		return (int) mRect.height();
+	}
+
+	@Override
+	public int getIntrinsicWidth() {
+		return (int) mRect.width();
+	}
+
 	/**
 	 * 建造者模式
 	 */
@@ -262,11 +275,6 @@ public class BubbleDrawable extends Drawable {
 		 * 箭头默认宽度
 		 */
 		public static float DEFAULT_ARROW_WIDTH = 25;
-		/**
-		 * 箭头默认高度
-		 */
-		public static float DEFAULT_ARROW_HEIGHT = 25;
-
 		/**
 		 * 默认圆角半径
 		 */
@@ -282,7 +290,7 @@ public class BubbleDrawable extends Drawable {
 
 		private RectF mRectF;
 		private float mArrowWidth = DEFAULT_ARROW_WIDTH;
-		private float mArrowHeight = DEFAULT_ARROW_HEIGHT;
+		private float mArrowHeight = DEFAULT_ARROW_WIDTH;
 		private float mRadius = DEFAULT_RADIUS;
 		private float mArrowOffset = DEFAULT_ARROW_OFFSET;
 
@@ -294,10 +302,6 @@ public class BubbleDrawable extends Drawable {
 			this.mRectF = rect;
 		}
 
-		public Builder rect(RectF rect) {
-			this.mRectF = rect;
-			return this;
-		}
 
 		public Builder arrowWidth(float width) {
 			this.mArrowWidth = width;
@@ -314,7 +318,7 @@ public class BubbleDrawable extends Drawable {
 			return this;
 		}
 
-		public Builder arrowOffset(int arrowOffset) {
+		public Builder arrowOffset(float arrowOffset) {
 			this.mArrowOffset = arrowOffset;
 			return this;
 		}
