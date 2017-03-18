@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Improve</string>
+    <string name="long_strings">在Activity的attach方法中，系统会创建Activity所属的Window对象，并为其设置回调接口，所以当window收到外界的状态改变时，就会回调Activity中的方法，如：onAttachedToWindow、dispatchTouchEvent等</string>
 </resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <ui.better.bubbler.BubbleTextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:padding="8dp"
+        android:text="@string/long_strings"
+        android:textSize="16sp"
+        app:bt_arrow_center="false"
+        app:bt_arrow_direction="LEFT"
+        app:bt_arrow_offset="16dp"
+        app:bt_arrow_width="8dp"
+        app:bt_bubble_color="@color/colorAccent"
+        app:bt_radius="5dp"/>
+
+
+</LinearLayout>

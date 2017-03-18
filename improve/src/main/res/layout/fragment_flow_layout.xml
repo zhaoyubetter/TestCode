@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <ui.better.FlowLayout
+        android:id="@+id/flowLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_bright"
+        android:padding="8dp"
+        >
+
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="1"/>
+
+        <TextView
+            android:layout_width="96dp"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="2"/>
+
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="4"/>
+
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="5"/>
+
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="6"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="7"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="8"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="9"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="10"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="11"/>
+
+    </ui.better.FlowLayout>
+
+</LinearLayout>
