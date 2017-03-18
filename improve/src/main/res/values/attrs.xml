@@ -8,4 +8,8 @@
     <declare-styleable name="CheckLayout">
         <attr name="cl_items" format="reference" />
     </declare-styleable>
+    
+    <declare-styleable name="RadioLayout">
+        <attr name="rl_items" format="reference" />
+    </declare-styleable>
 </resources>

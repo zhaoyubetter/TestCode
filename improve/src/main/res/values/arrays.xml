@@ -41,6 +41,13 @@
         <item>下</item>
     </string-array>
 
+    <string-array name="gravity2">
+        <item>左</item>
+        <item>中</item>
+        <item>右</item>
+        <item>下</item>
+    </string-array>
+
     <integer-array name="color_items">
         <item>0xFFFFFFFF</item>
         <item>0xFFFF0000</item>

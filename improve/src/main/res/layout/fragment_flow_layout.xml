@@ -1,79 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ui.better.FlowLayout
-        android:id="@+id/flowLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/holo_blue_bright"
-        android:padding="8dp"
-        >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_margin="16dp"
+                  android:orientation="vertical">
+
+        <ui.better.FlowLayout
+            android:id="@+id/flowLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fl_horizontal_space="2dp"
+            app:fl_vertical_space="2dp">
+
+            <TextView
+                android:layout_width="68dp"
+                android:layout_height="48dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="A"/>
+
+            <TextView
+                android:layout_width="96dp"
+                android:layout_height="48dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="B"/>
+
+        </ui.better.FlowLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新增"/>
+
+            <Button
+                android:id="@+id/del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="删除"/>
+
+        </LinearLayout>
 
         <TextView
-            android:layout_width="96dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="1"/>
+            android:text="对其方式"/>
 
-        <TextView
-            android:layout_width="96dp"
-            android:gravity="center_vertical"
+        <test.better.com.leak.custom_view.RadioLayout
+            android:id="@+id/radioGravity"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="2"/>
+            android:gravity="right"
+            android:orientation="horizontal"
+            app:rl_items="@array/gravity2">
+        </test.better.com.leak.custom_view.RadioLayout>
 
-        <TextView
-            android:layout_width="96dp"
+        <test.better.com.leak.custom_view.SeekLayout
+            android:id="@+id/seekLayout_ver"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="4"/>
+            app:sl_info="纵向间隔"
+            app:sl_max="64"></test.better.com.leak.custom_view.SeekLayout>
 
-        <TextView
-            android:layout_width="96dp"
+        <test.better.com.leak.custom_view.SeekLayout
+            android:id="@+id/seekLayout_hor"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="5"/>
+            app:sl_info="横向间隔"
+            app:sl_max="64"></test.better.com.leak.custom_view.SeekLayout>
 
-        <TextView
-            android:layout_width="96dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="6"/>
+    </LinearLayout>
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="7"/>
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="8"/>
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="9"/>
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="10"/>
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="11"/>
-
-    </ui.better.FlowLayout>
-
-</LinearLayout>
+</ScrollView>
