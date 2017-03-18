@@ -4,13 +4,13 @@ import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +21,11 @@ import java.util.List;
 public class FlowLayout extends ViewGroup {
 
 	public static final int LEFT = 0;
-	public static final int CENTER = 1;
+	public static final int HORIZONTAL_CENTER = 1;
 	public static final int RIGHT = 2;
 	public static final int BOTTOM = 3;
 
-	@IntDef(value = {LEFT, CENTER, RIGHT, BOTTOM})
+	@IntDef(value = {LEFT, HORIZONTAL_CENTER, RIGHT, BOTTOM})
 	public @interface Gravity {
 
 	}
@@ -35,8 +35,8 @@ public class FlowLayout extends ViewGroup {
 	 */
 	private int mGravity = BOTTOM;
 
-	private int mVerticalPadding = 10;
-	private int mHorziontalPadding = 5;
+	private int mVerticalPadding = 0;
+	private int mHorziontalPadding = 0;
 
 	private LayoutTransition layoutTransition;
 
@@ -57,6 +57,16 @@ public class FlowLayout extends ViewGroup {
 
 	public FlowLayout(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
+		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.FlowLayout);
+		try {
+			setHorziontalPadding((int) a.getDimension(R.styleable.FlowLayout_fl_horizontal_space, 0));
+			setVerticalPadding((int) a.getDimension(R.styleable.FlowLayout_fl_vertical_space, 0));
+			setGravity(a.getInt(R.styleable.FlowLayout_fl_gravity, LEFT));
+		} finally {
+			if (a != null) {
+				a.recycle();
+			}
+		}
 		initTransition();
 	}
 
@@ -143,6 +153,7 @@ public class FlowLayout extends ViewGroup {
 					currentRowFlowInfo.add(flowInfo);
 					offsetLeft = childWidth;
 					wrapHeight += lineHeight;
+					lineHeight = childHeight; // lineHeight 指定为行首view高
 					rowCount++;
 				} else {
 					lineWidth += childWidth;
@@ -168,7 +179,7 @@ public class FlowLayout extends ViewGroup {
 		// 因为是在每次换行时，高度增加， 所有循环结束的时候，高度需要增加
 		width = Math.max(lineWidth, width);
 		height += lineHeight;
-		if (rowCount > 1) {    // 如果大于1行，去掉最后一行的 mVerticalPadding
+		if (height > 0) {    // 如果有高度，去掉最后的 mVerticalPadding
 			height -= mVerticalPadding;
 		}
 
@@ -210,7 +221,7 @@ public class FlowLayout extends ViewGroup {
 					case LEFT:
 						view.layout(item.rect.left, item.rect.top, item.rect.right, item.rect.bottom);
 						break;
-					case CENTER:
+					case HORIZONTAL_CENTER:
 						left = (spaceWidth - usedLineWidth) / 2 + item.rect.left;
 						view.layout(left, item.rect.top, left + item.rect.width(), item.rect.bottom);
 						break;
@@ -239,17 +250,17 @@ public class FlowLayout extends ViewGroup {
 
 	public void setGravity(@Gravity int mGravity) {
 		this.mGravity = mGravity;
-		invalidate();
+		requestLayout();
 	}
 
 	public void setVerticalPadding(int mVerticalPadding) {
 		this.mVerticalPadding = mVerticalPadding;
-		invalidate();
+		requestLayout();
 	}
 
 	public void setHorziontalPadding(int mHorziontalPadding) {
 		this.mHorziontalPadding = mHorziontalPadding;
-		invalidate();
+		requestLayout();
 	}
 
 	class FlowInfomation {
