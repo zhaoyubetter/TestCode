@@ -54,6 +54,8 @@ public class BubbleTextView extends TextView {
 	 */
 	private boolean mArrowCenter;
 
+	private int[] mOringinalPaddings;
+
 
 	public BubbleTextView(Context context) {
 		this(context, null);
@@ -75,7 +77,11 @@ public class BubbleTextView extends TextView {
 			setArrowDirection(a.getInt(R.styleable.BubbleTextView_bt_arrow_direction, BubbleDrawable.LEFT));
 			setRadius(a.getDimension(R.styleable.BubbleTextView_bt_radius, BubbleDrawable.Builder.DEFAULT_RADIUS));
 			setBubbleColor(a.getColor(R.styleable.BubbleTextView_bt_bubble_color, BubbleDrawable.Builder.DEFAULT_BUBBLE_COLOR));
-
+			mOringinalPaddings = new int[4];
+			mOringinalPaddings[0] = getPaddingLeft();
+			mOringinalPaddings[1] = getPaddingTop();
+			mOringinalPaddings[2] = getPaddingRight();
+			mOringinalPaddings[3] = getPaddingBottom();
 			setInnerPadding();
 		} finally {
 			if (null != a) {
@@ -88,10 +94,10 @@ public class BubbleTextView extends TextView {
 	 * 箭头会有填充
 	 */
 	private void setInnerPadding() {
-		int paddingLeft = getPaddingLeft();
-		int paddingTop = getPaddingTop();
-		int paddingRight = getPaddingRight();
-		int paddingBottom = getPaddingBottom();
+		int paddingLeft = mOringinalPaddings[0];
+		int paddingTop = mOringinalPaddings[1];
+		int paddingRight = mOringinalPaddings[2];
+		int paddingBottom = mOringinalPaddings[3];
 
 		switch (mArrowDirection) {
 			case BubbleDrawable.LEFT:
@@ -141,27 +147,28 @@ public class BubbleTextView extends TextView {
 	@Override
 	protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
+		setInnerPadding();
 		reset(getWidth(), getHeight());
 	}
 
 	public void setArrowWidth(float mArrowWidth) {
 		this.mArrowWidth = mArrowWidth;
-		invalidate();
+		requestLayout();
 	}
 
 	public void setArrowHeight(float mArrowHeight) {
 		this.mArrowHeight = mArrowHeight;
-		invalidate();
+		requestLayout();
 	}
 
 	public void setRadius(float mRadius) {
 		this.mRadius = mRadius;
-		invalidate();
+		requestLayout();
 	}
 
 	public void setArrowOffset(float mArrowOffset) {
 		this.mArrowOffset = mArrowOffset;
-		invalidate();
+		requestLayout();
 	}
 
 	public void setBubbleColor(int mBubbleColor) {
@@ -171,11 +178,11 @@ public class BubbleTextView extends TextView {
 
 	public void setArrowDirection(int mArrowDirection) {
 		this.mArrowDirection = mArrowDirection;
-		invalidate();
+		requestLayout();
 	}
 
 	public void setArrowCenter(boolean mArrowCenter) {
 		this.mArrowCenter = mArrowCenter;
-		invalidate();
+		requestLayout();
 	}
 }
