@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,9 +134,15 @@ public class FlowLayout extends ViewGroup {
 				FlowInfomation flowInfo = new FlowInfomation();
 
 				measureChild(v, widthMeasureSpec, heightMeasureSpec);
-				MarginLayoutParams lp = (MarginLayoutParams) v.getLayoutParams();
-				int childWidth = lp.leftMargin + v.getMeasuredWidth() + lp.rightMargin + mHorziontalPadding;
-				int childHeight = lp.topMargin + v.getMeasuredHeight() + lp.bottomMargin + mVerticalPadding;
+				int childWidth = v.getMeasuredWidth() + mHorziontalPadding;
+				int childHeight = v.getMeasuredHeight() + mVerticalPadding;
+
+				LayoutParams layoutParams = v.getLayoutParams();
+				if (layoutParams instanceof MarginLayoutParams) {
+					MarginLayoutParams lp = (MarginLayoutParams) layoutParams;
+					childWidth += lp.leftMargin + lp.rightMargin;
+					childHeight += lp.topMargin + lp.bottomMargin;
+				}
 
 				if (lineWidth + childWidth + getPaddingLeft() + getPaddingRight() > widthSpec
 						&& (lineWidth + childWidth + getPaddingLeft() + getPaddingRight() - mHorziontalPadding) > widthSpec) {    // 换行

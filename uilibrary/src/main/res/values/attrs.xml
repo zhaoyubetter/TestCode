@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- 选择状态 -->
+    <attr name="item_selector" format="reference"/>
+
     <!-- 4周可画分割线的TextView -->
     <declare-styleable name="DivideTextView">
         <attr name="dt_drawable" format="reference|color"/>
@@ -59,5 +63,16 @@
             <enum name="RIGHT" value="2"/>
             <enum name="BOTTOM" value="3"/>
         </attr>
+    </declare-styleable>
+
+    <!-- SelectFlowLayout -->
+    <declare-styleable name="SelectFlowLayout">
+        <attr name="fl_item_selector" format="reference"/>
+        <attr name="fl_select_mode" format="enum">
+            <enum name="SINGLE" value="0"/>
+            <enum name="MULTI" value="1"/>
+            <enum name="RECTANGLE" value="2"/>
+        </attr>
+        <attr name="fl_max_selected_size" format="integer"/>
     </declare-styleable>
 </resources>

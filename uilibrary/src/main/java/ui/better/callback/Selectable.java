@@ -15,6 +15,7 @@ public interface Selectable {
 
 	/**
 	 * 设置选中状态
+	 *
 	 * @param index
 	 * @param select
 	 */
@@ -26,6 +27,11 @@ public interface Selectable {
 
 	void setOnRectangleSelectListener(OnRectangleSelectListener listener);
 
+	/**
+	 * 获取单选的位置
+	 *
+	 * @return
+	 */
 	int getSingleSelectedIndex();
 
 	List<Integer> getMultiSelectedIndex();

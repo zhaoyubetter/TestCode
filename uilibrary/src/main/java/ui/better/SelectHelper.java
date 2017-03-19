@@ -19,9 +19,6 @@ import ui.better.callback.Selectable;
 public final class SelectHelper {
 	public static final int SINGLE = 0;
 	public static final int MULTI = 1;
-	/**
-	 * 范围选择
-	 */
 	public static final int RECTANGLE = 2;
 
 	/**
@@ -55,7 +52,7 @@ public final class SelectHelper {
 	}
 
 	public void setMaxSelectSize(int size) {
-		if (size > 0 && this.selectMode == SINGLE) {
+		if (size > 0 && this.selectMode == MULTI) {
 			this.maxSelectSize = size;
 		} else {
 			this.maxSelectSize = Integer.MAX_VALUE;
@@ -127,7 +124,7 @@ public final class SelectHelper {
 		switch (selectMode) {
 			case MULTI:
 				if (multiItems.contains(index)) {
-					multiItems.remove(index);
+					multiItems.remove(new Integer(index));
 					selectable.setItemSelect(index, false);
 				} else {
 					if (multiItems.size() < maxSelectSize) {
@@ -146,10 +143,10 @@ public final class SelectHelper {
 					// 清空所有选项
 					selectable.setItemSelect(false);
 					start = end = -1;
-				} else if (-1 != start) {
+				} else if (-1 == start) {
 					start = index;
 					selectable.setItemSelect(index, true);
-				} else if (-1 != end) {
+				} else if (-1 == end) {
 					end = index;
 					// 范围选中
 					for (int i = Math.min(start, end); i <= Math.max(start, end); i++) {
