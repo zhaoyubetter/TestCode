@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_margin="16dp"
+                  android:orientation="vertical">
+
+        <ui.better.SelectFlowLayout
+            android:id="@+id/flowLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fl_horizontal_space="2dp"
+            app:fl_item_selector="@drawable/selector_select"
+            app:fl_vertical_space="2dp">
+
+        </ui.better.SelectFlowLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新增"/>
+
+            <Button
+                android:id="@+id/del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="删除"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择模式"/>
+
+        <test.better.com.leak.custom_view.RadioLayout
+            android:id="@+id/radioSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal"
+            app:rl_items="@array/choose_mode">
+        </test.better.com.leak.custom_view.RadioLayout>
+
+        <RelativeLayout
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:id="@+id/container_multi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="限制多选个数"/>
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:entries="@array/numbers"></Spinner>
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="对其方式"/>
+
+        <test.better.com.leak.custom_view.RadioLayout
+            android:id="@+id/radioGravity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal"
+            app:rl_items="@array/gravity2">
+        </test.better.com.leak.custom_view.RadioLayout>
+
+        <test.better.com.leak.custom_view.SeekLayout
+            android:id="@+id/seekLayout_ver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sl_info="纵向间隔"
+            app:sl_max="64"></test.better.com.leak.custom_view.SeekLayout>
+
+        <test.better.com.leak.custom_view.SeekLayout
+            android:id="@+id/seekLayout_hor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sl_info="横向间隔"
+            app:sl_max="64"></test.better.com.leak.custom_view.SeekLayout>
+
+    </LinearLayout>
+
+</ScrollView>

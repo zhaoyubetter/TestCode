@@ -47,5 +47,6 @@ public class CustomViewMainActivity extends AppCompatActivity {
 		mDatas.add(new FuncItem("CenterGridLayout", CenterGridLayoutFragment.class.getName()));
 		mDatas.add(new FuncItem("BubbleView", BubbleViewFragment.class.getName()));
 		mDatas.add(new FuncItem("FlowLayout", FlowLayoutFragment.class.getName()));
+		mDatas.add(new FuncItem("SelectFlowLayout(多选)", SelectFlowLayoutFragment.class.getName()));
 	}
 }

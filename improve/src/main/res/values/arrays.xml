@@ -48,6 +48,25 @@
         <item>下</item>
     </string-array>
 
+    <string-array name="choose_mode">
+        <item>单选</item>
+        <item>多选</item>
+        <item>块选</item>
+    </string-array>
+
+    <string-array name="numbers">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
     <integer-array name="color_items">
         <item>0xFFFFFFFF</item>
         <item>0xFFFF0000</item>
