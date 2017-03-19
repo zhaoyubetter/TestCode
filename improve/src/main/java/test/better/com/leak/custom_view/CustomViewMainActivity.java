@@ -48,5 +48,6 @@ public class CustomViewMainActivity extends AppCompatActivity {
 		mDatas.add(new FuncItem("BubbleView", BubbleViewFragment.class.getName()));
 		mDatas.add(new FuncItem("FlowLayout", FlowLayoutFragment.class.getName()));
 		mDatas.add(new FuncItem("SelectFlowLayout(多选)", SelectFlowLayoutFragment.class.getName()));
+		mDatas.add(new FuncItem("stateTextView(自定义状态)", StateTextViewFragment.class.getName()));
 	}
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="@android:color/tertiary_text_light" app:state1="true"/>
+    <item android:color="@android:color/tertiary_text_light" app:state2="true"/>
+    <item android:color="@android:color/primary_text_dark" app:state3="true"/>
+    <item android:color="@android:color/secondary_text_dark" app:state4="true"/>
+    <item android:color="@android:color/holo_red_light" app:state5="true"/>
+    <item android:color="@android:color/white"/>
+
+</selector>
