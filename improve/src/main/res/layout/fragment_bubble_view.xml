@@ -1,24 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <ui.better.bubbler.BubbleTextView
-        android:id="@+id/textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        android:padding="8dp"
-        android:text="@string/long_strings"
-        android:textSize="16sp"
-        app:bt_arrow_center="false"
-        app:bt_arrow_direction="LEFT"
-        app:bt_arrow_offset="16dp"
-        app:bt_arrow_width="8dp"
-        app:bt_bubble_color="@color/colorAccent"
-        app:bt_radius="5dp"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <ui.better.bubbler.BubbleTextView
+            android:id="@+id/textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:padding="8dp"
+            android:text="@string/long_strings"
+            android:textSize="16sp"
+            app:bt_arrow_center="false"
+            app:bt_arrow_direction="LEFT"
+            app:bt_arrow_offset="16dp"
+            app:bt_arrow_width="8dp"
+            app:bt_bubble_color="@color/colorAccent"
+            app:bt_radius="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="箭头方向"/>
+
+        <test.better.com.leak.custom_view.RadioLayout
+            android:id="@+id/arrowDirectionRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:orientation="horizontal"
+            app:rl_items="@array/gravity1"/>
 
 
-</LinearLayout>
+        <test.better.com.leak.custom_view.SeekLayout
+            android:id="@+id/seekLayout_offset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sl_info="箭头偏移量"
+            app:sl_max="50"/>
+
+        <test.better.com.leak.custom_view.SeekLayout
+            android:id="@+id/seekLayout_arrowHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sl_info="箭头高"
+            app:sl_max="50"/>
+
+        <test.better.com.leak.custom_view.SeekLayout
+            android:id="@+id/seekLayout_arrowWidth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sl_info="箭头宽"
+            app:sl_max="50"/>
+
+        <CheckBox
+            android:id="@+id/arrow_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="箭头居中"/>
+
+        <test.better.com.leak.custom_view.SeekLayout
+            android:id="@+id/seekLayout_radius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sl_info="圆角大小"
+            app:sl_max="80"/>
+
+    </LinearLayout>
+</ScrollView>
