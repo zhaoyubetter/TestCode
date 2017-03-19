@@ -75,4 +75,20 @@
         </attr>
         <attr name="fl_max_selected_size" format="integer"/>
     </declare-styleable>
+
+    <!-- 多状态的TextView （自定义状态） -->
+    <declare-styleable name="StateTextView">
+        <attr name="state1" format="boolean"/>
+        <attr name="state2" format="boolean"/>
+        <attr name="state3" format="boolean"/>
+        <attr name="state4" format="boolean"/>
+        <attr name="state5" format="boolean"/>
+        <attr name="stateEnabled" format="enum">
+            <enum name="state1" value="0x01"/>
+            <enum name="state2" value="0x02"/>
+            <enum name="state3" value="0x03"/>
+            <enum name="state4" value="0x04"/>
+            <enum name="state5" value="0x05"/>
+        </attr>
+    </declare-styleable>
 </resources>
