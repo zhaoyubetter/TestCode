@@ -50,5 +50,7 @@ public class CustomViewMainActivity extends AppCompatActivity {
 		mDatas.add(new FuncItem("SelectFlowLayout(多选)", SelectFlowLayoutFragment.class.getName()));
 		mDatas.add(new FuncItem("stateTextView(自定义状态)", StateTextViewFragment.class.getName()));
 		mDatas.add(new FuncItem("ClearEditText", ClearEditTextFragment.class.getName()));
+		mDatas.add(new FuncItem("三阶贝塞尔 例子", BallViewFragment.class.getName()));
+		mDatas.add(new FuncItem("三阶贝塞尔（优化） 例子", BallView2Fragment.class.getName()));
 	}
 }
