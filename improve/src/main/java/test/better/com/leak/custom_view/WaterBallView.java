@@ -77,7 +77,7 @@ public class WaterBallView extends View {
 			model5(mInterpolatedTime);
 		}
 
-		// 上下
+		// 上下 波动
 		mTopLine.setY(-mRadius + (int) (Math.sin(mInterpolatedTime * Math.PI) * (1 / 6f * mRadius)));
 		mBottomLine.setY(mRadius - ((int) (Math.sin(mInterpolatedTime * Math.PI) * (1 / 6f * mRadius))));
 
@@ -117,20 +117,20 @@ public class WaterBallView extends View {
 	// 右拉伸状态
 	private void model1(float time) {
 		model0();
-		mRightLine.setX(mRadius + mRadius * time * 5);
+		mRightLine.setX(mRadius + mRadius * time * 5);	   // 右边3个点统一右移一点
 	}
 
 	// 左右拉伸
 	private void model2(float time) {
-		model1(0.2f);
+		model1(0.2f);	 // 右移到最大
 		time = (time - 0.2f) * (10f / 3);
 		float shrinkTopBottom = c * 0.45f;
 
-		// 上下
+		// 上下 右移
 		mTopLine.adjustAllX(mRadius / 2 * time);
 		mBottomLine.adjustAllX(mRadius / 2 * time);
 
-		// 左右
+		// 左右 垂直压缩
 		mRightLine.adjustY(shrinkTopBottom * time);
 		mLeftLine.adjustY(shrinkTopBottom * time);
 	}
@@ -142,22 +142,27 @@ public class WaterBallView extends View {
 		time = (time - 0.5f) * (10f / 3);
 		float shrinkTopBottom = c * 0.45f;
 
-		// 上下
+		// 上下 右移
 		mTopLine.adjustAllX(mRadius / 2 * time);
 		mBottomLine.adjustAllX(mRadius / 2 * time);
 
+		// 左右 还原
 		mLeftLine.adjustY(-shrinkTopBottom * time);
 		mRightLine.adjustY(-shrinkTopBottom * time);
 
+		// 左拉伸
 		mLeftLine.adjustAllX(mRadius / 2 * time);
 	}
 
 	private void model4(float time) {
 		model3(0.8f);
 		time = (time - 0.8f) * 10;
+
+		// 左继续
 		mLeftLine.adjustAllX(mRadius / 2 * time);
 	}
 
+	// 还原
 	private void model5(float time) {
 		model4(0.9f);
 		time = time - 0.9f;
