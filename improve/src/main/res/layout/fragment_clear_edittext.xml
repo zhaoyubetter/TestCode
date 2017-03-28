@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <ui.better.ClearEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入写什么吧"
+        app:ct_drawableRight="@android:drawable/ic_notification_clear_all"/>
+
+    <ui.better.ClearEditText
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入写什么吧"
+        app:ct_drawableRight="@android:drawable/ic_menu_close_clear_cancel"/>
+
+</LinearLayout>

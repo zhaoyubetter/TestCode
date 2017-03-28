@@ -13,6 +13,7 @@ import java.util.List;
 
 import test.better.com.leak.FuncActivity;
 import test.better.com.leak.R;
+import test.better.com.leak.custom_view.path.PathAnim1Fragment;
 
 public class CustomViewMainActivity extends AppCompatActivity {
 
@@ -52,5 +53,7 @@ public class CustomViewMainActivity extends AppCompatActivity {
 		mDatas.add(new FuncItem("ClearEditText", ClearEditTextFragment.class.getName()));
 		mDatas.add(new FuncItem("三阶贝塞尔 例子", BallViewFragment.class.getName()));
 		mDatas.add(new FuncItem("三阶贝塞尔（优化） 例子", BallView2Fragment.class.getName()));
+		mDatas.add(new FuncItem("三阶贝塞尔（水滴） 例子", WaterBallViewFragment.class.getName()));
+		mDatas.add(new FuncItem("Path Anim", PathAnim1Fragment.class.getName()));
 	}
 }

@@ -7,7 +7,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import test.better.com.leak.R;
 
@@ -35,7 +34,6 @@ public class LifeCycleActivity extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
