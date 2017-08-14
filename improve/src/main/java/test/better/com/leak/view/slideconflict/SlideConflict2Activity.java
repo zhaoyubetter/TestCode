@@ -16,7 +16,7 @@ public class SlideConflict2Activity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getSupportActionBar().setTitle("内外滑动方向一致-内部拦截1");
-		setContentView(R.layout.activity_slide_conflict_1);
+		setContentView(R.layout.activity_slide_conflict_2);
 
 		list1 = (ListView) findViewById(R.id.list1);
 		list2 = (ListView) findViewById(R.id.list2);

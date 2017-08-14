@@ -94,27 +94,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                // 下载文件测试
-
-                final String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                File file = new File(absolutePath + "/DCIM/Camera/down.jpg");
-                new OkHttpRequest.Builder().url("").callback(new AbsRequestCallBack() {
-                    @Override
-                    public void onSuccess(Object o) {
-                        Log.e("okHttp success", o.toString());
-                    }
-
-                    @Override
-                    public void onFailure(Throwable e) {
-                        Log.e("okHttp failure", e.toString());
-                    }
-
-                    @Override
-                    public void onProgressUpdate(long contentLength, long bytesRead, boolean done) {
-                        super.onProgressUpdate(contentLength, bytesRead, done);
-                        Log.e("okHttp success", String.format("total:%s, already:%s, isDone: %s", contentLength, bytesRead, done));
-                    }
-                }).downFile(new Pair<String, File>(null, file)).build().request();
+//                // 下载文件测试
+//
+//                final String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+//                File file = new File(absolutePath + "/DCIM/Camera/down.jpg");
+//                new OkHttpRequest.Builder().url("").callback(new AbsRequestCallBack() {
+//                    @Override
+//                    public void onSuccess(Object o) {
+//                        Log.e("okHttp success", o.toString());
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Throwable e) {
+//                        Log.e("okHttp failure", e.toString());
+//                    }
+//
+//                    @Override
+//                    public void onProgressUpdate(long contentLength, long bytesRead, boolean done) {
+//                        super.onProgressUpdate(contentLength, bytesRead, done);
+//                        Log.e("okHttp success", String.format("total:%s, already:%s, isDone: %s", contentLength, bytesRead, done));
+//                    }
+//                }).downFile(new Pair<String, File>(null, file)).build().request();
             }
         });
     }

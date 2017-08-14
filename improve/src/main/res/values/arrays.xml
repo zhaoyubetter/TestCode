@@ -7,14 +7,7 @@
         <item>D item</item>
         <item>E item</item>
         <item>F item</item>
-        <item>G item</item>
-        <item>H item</item>
-        <item>I item</item>
-        <item>J item</item>
-        <item>K item</item>
-        <item>L item</item>
-        <item>M item</item>
-        <item>N item</item>
+
     </string-array>
 
     <string-array name="list_test_data_2">

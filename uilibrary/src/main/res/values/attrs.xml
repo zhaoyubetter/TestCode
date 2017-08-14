@@ -91,4 +91,10 @@
             <enum name="state5" value="0x05"/>
         </attr>
     </declare-styleable>
+
+    <!-- 带删除图标的 EditText -->
+    <declare-styleable name="ClearEditText">
+        <attr name="ct_drawableRight" format="reference"/>
+    </declare-styleable>
+
 </resources>
