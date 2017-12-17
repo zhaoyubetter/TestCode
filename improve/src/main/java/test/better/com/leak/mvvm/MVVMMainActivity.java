@@ -9,6 +9,9 @@ import android.view.View;
 import test.better.com.leak.R;
 import test.better.com.leak.databinding.ActivityMvvmmainBinding;
 
+/**
+ * 参考：http://blog.csdn.net/u012702547/article/details/52077515
+ */
 public class MVVMMainActivity extends AppCompatActivity implements View.OnClickListener {
 
 	@Override

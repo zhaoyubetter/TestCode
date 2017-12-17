@@ -1,5 +1,7 @@
 package test.better.com.leak.mvvm;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,7 +9,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-public class Food {
+import test.better.com.leak.BR;
+
+public class Food extends BaseObservable {
 	private String description;
     private String img;  
     private String keywords;  
@@ -26,14 +30,16 @@ public class Food {
     @BindingAdapter("bind:img")
     public static void loadInternetImage(ImageView iv, String img) {
         Glide.with(iv.getContext()).load(img).into(iv);
-    }  
-  
+    }
+
+    @Bindable
     public String getDescription() {  
         return description;  
-    }  
-  
-    public void setDescription(String description) {  
-        this.description = description;  
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+        notifyPropertyChanged(BR.description);
     }  
   
     public String getImg() {  
@@ -62,5 +68,6 @@ public class Food {
 
     public void onIVItemClick(View view) {
         Toast.makeText(view.getContext(), getDescription(), Toast.LENGTH_SHORT).show();
+        setDescription("动态改变Description字段");
     }
 }  
