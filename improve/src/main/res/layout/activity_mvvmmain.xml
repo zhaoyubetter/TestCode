@@ -32,7 +32,17 @@
             android:text="RecyclerView例子"/>
 
         <!--include-->
-        <include layout="@layout/include_activity_mvvmmain" bind:presenter="@{presenter}" bind:user="@{user}" />
+        <include
+            layout="@layout/include_activity_mvvmmain"
+            bind:presenter="@{presenter}"
+            bind:user="@{user}"/>
+
+        <!-- viewStub-->
+        <ViewStub
+            android:layout="@layout/mvvm_view_stub"
+            android:id="@+id/view_stub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </layout>

@@ -39,6 +39,7 @@ public class MVVMMainActivity extends AppCompatActivity implements View.OnClickL
 		user.icon = "http://img2.cache.netease.com/auto/2016/7/28/201607282215432cd8a.jpg";
 		viewDataBinding.setUser(user);
 		viewDataBinding.setPresenter(new Presenter());
+		viewDataBinding.viewStub.getViewStub().inflate();
 
 		findViewById(R.id.list).setOnClickListener(this);
 		findViewById(R.id.recycler).setOnClickListener(this);

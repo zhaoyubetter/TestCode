@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item"
+            type="test.better.com.leak.mvvm.one.Employee"/>
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.firstName}"/>
+
+        <TextView
+            android:textColor="@android:color/holo_red_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="is fired"/>
+
+    </LinearLayout>
+</layout>
