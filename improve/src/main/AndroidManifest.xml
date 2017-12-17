@@ -41,6 +41,8 @@
         </activity>
         <activity android:name=".mvvm.ListActivity">
         </activity>
+        <activity android:name=".mvvm.one.RecyclerDataBindActivity">
+        </activity>
     </application>
 
 </manifest>

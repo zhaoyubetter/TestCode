@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:bind="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -14,25 +14,31 @@
     </data>
 
     <LinearLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/list"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="listView 例子"/>
+            android:onClick="@{()->presenter.onClickListenerBinding(user)}"
+            android:text="@{user.username}"/>
 
-        <Button
-            android:id="@+id/recycler"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RecyclerView例子"/>
+            android:text="@{user.nickname}"/>
 
-        <!--include-->
-        <include layout="@layout/include_activity_mvvmmain" bind:presenter="@{presenter}" bind:user="@{user}" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(user.age)}"/>
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@{user.icon}"></ImageView>
 
     </LinearLayout>
 </layout>
