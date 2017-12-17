@@ -9,6 +9,7 @@ import test.better.com.leak.activity_review.LaunchModeActivity;
 import test.better.com.leak.activity_review.LifeCycleActivity;
 import test.better.com.leak.custom_view.CustomViewMainActivity;
 import test.better.com.leak.leak.LeakActivity;
+import test.better.com.leak.mvvm.MVVMMainActivity;
 import test.better.com.leak.optimize.ImageCompressActivity;
 import test.better.com.leak.test.Instrumentation1Activity;
 import test.better.com.leak.view.ViewActivity;
@@ -76,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Apps.getApp(), Instrumentation1Activity.class);
                 startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.MVVM).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MVVMMainActivity.class));
             }
         });
     }

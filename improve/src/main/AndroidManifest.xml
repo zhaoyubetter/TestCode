@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="test.better.com.leak">
+<manifest package="test.better.com.leak"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".Apps"
@@ -33,9 +35,12 @@
         <activity android:name=".view.slideconflict.SlideConflict4Activity"/>
         <activity android:name=".test.Instrumentation1Activity">
         </activity>
-        <activity android:name=".custom_view.CustomViewMainActivity"></activity>
-        <activity android:name="test.better.com.leak.FuncActivity" />
-
+        <activity android:name=".custom_view.CustomViewMainActivity"/>
+        <activity android:name=".FuncActivity"/>
+        <activity android:name=".mvvm.MVVMMainActivity">
+        </activity>
+        <activity android:name=".mvvm.ListActivity">
+        </activity>
     </application>
 
 </manifest>
