@@ -47,6 +47,8 @@
         </activity>
         <activity android:name=".mvvm.three.TwoWayActivity">
         </activity>
+        <activity android:name=".mvvm.four.LambdaActivity">
+        </activity>
     </application>
 
 </manifest>

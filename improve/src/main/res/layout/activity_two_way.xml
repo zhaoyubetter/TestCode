@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="model"
             type="test.better.com.leak.mvvm.three.FormModel"/>
@@ -27,9 +29,21 @@
             android:text="@={model.password}"/>
 
         <Button
-            android:text="@{model.name}"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@{model.name}"/>
+
+        <CheckBox
+            android:id="@+id/chk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="勾选"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示"
+            android:visibility="@{chk.checked ? View.VISIBLE:View.INVISIBLE}"/>
 
     </LinearLayout>
 </layout>

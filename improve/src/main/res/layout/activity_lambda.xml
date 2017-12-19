@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="employee"
+            type="test.better.com.leak.mvvm.one.Employee"/>
+
+        <variable
+            name="presenter"
+            type="test.better.com.leak.mvvm.four.LambdaActivity.Presenter"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:context="test.better.com.leak.mvvm.four.LambdaActivity">
+
+        <Button
+            android:onClick="@{()->presenter.onEmployeeClick(employee)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{employee.firstName}"/>
+
+        <Button
+            android:onClick="@{(v)->presenter.onEmployeeOtherClick(employee, context)}"
+            android:layout_width="wrap_content"
+            android:onFocusChange="@{()->presenter.onFocusChange(employee)}"
+            android:layout_height="wrap_content"
+            android:text="@{employee.lastName}"/>
+
+    </LinearLayout>
+
+
+</layout>
+

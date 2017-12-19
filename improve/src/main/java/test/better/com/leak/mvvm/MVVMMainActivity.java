@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import test.better.com.leak.R;
 import test.better.com.leak.databinding.ActivityMvvmmainBinding;
+import test.better.com.leak.mvvm.four.LambdaActivity;
 import test.better.com.leak.mvvm.one.RecyclerDataBindActivity;
 import test.better.com.leak.mvvm.three.TwoWayActivity;
 import test.better.com.leak.mvvm.two.BindindAdapterDemoActiivty;
@@ -47,6 +48,7 @@ public class MVVMMainActivity extends AppCompatActivity implements View.OnClickL
 		findViewById(R.id.recycler).setOnClickListener(this);
 		findViewById(R.id.databindingAdapter).setOnClickListener(this);
 		findViewById(R.id.btn_twoway).setOnClickListener(this);
+		findViewById(R.id.btn_lambda).setOnClickListener(this);
 
 	}
 
@@ -64,6 +66,9 @@ public class MVVMMainActivity extends AppCompatActivity implements View.OnClickL
 				break;
 			case R.id.btn_twoway:
 				startActivity(new Intent(this, TwoWayActivity.class));
+				break;
+			case R.id.btn_lambda:
+				startActivity(new Intent(this, LambdaActivity.class));
 				break;
 		}
 	}
