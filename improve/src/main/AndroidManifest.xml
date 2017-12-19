@@ -43,6 +43,8 @@
         </activity>
         <activity android:name=".mvvm.one.RecyclerDataBindActivity">
         </activity>
+        <activity android:name=".mvvm.two.BindindAdapterDemoActiivty">
+        </activity>
     </application>
 
 </manifest>

@@ -26,8 +26,9 @@ public class Food extends BaseObservable {
         this.keywords = keywords;  
         this.summary = summary;  
     }  
-  
-    @BindingAdapter("bind:img")
+
+
+    @BindingAdapter("bind:img")  // 绑定适配器，注意这里是 static的
     public static void loadInternetImage(ImageView iv, String img) {
         Glide.with(iv.getContext()).load(img).into(iv);
     }

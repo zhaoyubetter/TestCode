@@ -10,6 +10,7 @@ import android.widget.Toast;
 import test.better.com.leak.R;
 import test.better.com.leak.databinding.ActivityMvvmmainBinding;
 import test.better.com.leak.mvvm.one.RecyclerDataBindActivity;
+import test.better.com.leak.mvvm.two.BindindAdapterDemoActiivty;
 
 /**
  * 参考：http://blog.csdn.net/u012702547/article/details/52077515
@@ -43,6 +44,8 @@ public class MVVMMainActivity extends AppCompatActivity implements View.OnClickL
 
 		findViewById(R.id.list).setOnClickListener(this);
 		findViewById(R.id.recycler).setOnClickListener(this);
+		findViewById(R.id.databindingAdapter).setOnClickListener(this);
+
 	}
 
 	@Override
@@ -53,6 +56,9 @@ public class MVVMMainActivity extends AppCompatActivity implements View.OnClickL
 				break;
 			case R.id.recycler:
 				startActivity(new Intent(this, RecyclerDataBindActivity.class));
+				break;
+			case R.id.databindingAdapter:
+				startActivity(new Intent(this, BindindAdapterDemoActiivty.class));
 				break;
 		}
 	}

@@ -13,6 +13,7 @@ import test.better.com.leak.BR;
 public class Employee extends BaseObservable {
 	private String lastName;
 	private String firstName;
+	public String icon;
 	/**
 	 * 使用属性名绑定
 	 */
