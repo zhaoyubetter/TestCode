@@ -37,6 +37,12 @@
             android:layout_height="wrap_content"
             android:text="DatabindingAdapter 例子"/>
 
+        <Button
+            android:id="@+id/btn_twoway"
+            android:text="双向绑定"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <!--include-->
         <include
             layout="@layout/include_activity_mvvmmain"
